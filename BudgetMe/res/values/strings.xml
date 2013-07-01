@@ -24,5 +24,6 @@
     <string name="title_activity_track_status">TrackStatus</string>
     <string name="title_activity_pie_chart">PieChart</string>
     <string name="title_activity_chart_pie">ChartPie</string>
+    <string name="title_activity_currency_converter">CurrencyConverter</string>
 
 </resources>

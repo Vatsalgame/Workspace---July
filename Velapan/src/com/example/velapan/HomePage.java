@@ -40,6 +40,8 @@ public class HomePage extends Activity {
 		final TextView rateText = (TextView) findViewById(R.id.rateText);
 		final TextView valText = (TextView) findViewById(R.id.valText);
 		List summary = new ArrayList();
+		
+		
 		mTask = new AsyncTask<Void, Void, Void> () {
 			HashMap summary = new HashMap();
 	        @Override

@@ -80,6 +80,12 @@ public class HomePage extends Activity {
 		startActivity(switchToStats);
 	}
 	
+	/** Called when user clicks on Currency Converter **/
+	public void switchToCurConverter(View view) {
+		Intent switchToConv = new Intent(this, CurrencyConverter.class);
+		startActivity(switchToConv);
+	}
+	
 	// to test DB reading
 	// not deleting the method yet
 //	public void refresh(View view) {

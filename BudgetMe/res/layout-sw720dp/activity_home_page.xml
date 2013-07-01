@@ -10,38 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HomePage" >
 
-    <TextView
-        android:id="@+id/moneySpentText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Money Spent"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="42sp" />
-
-    <TextView
-        android:id="@+id/remainderText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/moneySpentText"
-        android:layout_below="@+id/moneySpentText"
-        android:layout_marginTop="47dp"
-        android:text="Money Remaining:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="42sp" />
-
-    <TextView
-        android:id="@+id/mBudgetText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/remainderText"
-        android:layout_below="@+id/remainderText"
-        android:layout_marginTop="55dp"
-        android:text="Budget for this month: "
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="42sp" />
-
     <Button
         android:id="@+id/configButton"
         android:layout_width="wrap_content"
@@ -83,16 +51,6 @@
         android:textSize="40sp" />
 
     <TextView
-        android:id="@+id/dailyStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/mBudgetText"
-        android:layout_below="@+id/mBudgetText"
-        android:layout_marginTop="138dp"
-        android:text="Daily Stats:"
-        android:textSize="42sp" />
-
-    <TextView
         android:id="@+id/dayBudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -120,6 +78,59 @@
         android:layout_below="@+id/daySpent"
         android:layout_marginTop="64dp"
         android:text="Money Remaining:"
+        android:textSize="42sp" />
+
+    <TextView
+        android:id="@+id/dailyStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/remainderText"
+        android:layout_below="@+id/remainderText"
+        android:layout_marginTop="127dp"
+        android:text="Daily Stats:"
+        android:textSize="42sp" />
+
+    <TextView
+        android:id="@+id/remainderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/moneySpentText"
+        android:layout_below="@+id/moneySpentText"
+        android:layout_marginTop="49dp"
+        android:text="Money Remaining:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="42sp" />
+
+    <TextView
+        android:id="@+id/moneySpentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addSwitchButton"
+        android:layout_below="@+id/mBudgetText"
+        android:layout_marginTop="50dp"
+        android:text="Money Spent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="42sp" />
+
+    <TextView
+        android:id="@+id/mBudgetText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/moneySpentText"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
+        android:text="Budget for this month: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="42sp" />
+
+    <TextView
+        android:id="@+id/monStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mBudgetText"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="41dp"
+        android:text="Monthly Stats:"
         android:textSize="42sp" />
 
 </RelativeLayout>
