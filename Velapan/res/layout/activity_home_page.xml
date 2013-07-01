@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".HomePage" >
+
+    <TextView
+        android:id="@+id/showJSON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="34dp"
+        android:text="TextView"
+        android:textSize="26sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/showJSON"
+        android:layout_marginBottom="29dp"
+        android:layout_marginRight="14dp"
+        android:text="Get Data"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/fromCur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/showJSON"
+        android:layout_alignRight="@+id/showJSON"
+        android:layout_below="@+id/showJSON"
+        android:layout_marginTop="61dp"
+        android:text="TextView"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/toCur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fromCur"
+        android:layout_alignRight="@+id/fromCur"
+        android:layout_below="@+id/fromCur"
+        android:layout_marginTop="48dp"
+        android:text="TextView"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/rateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/toCur"
+        android:layout_alignRight="@+id/toCur"
+        android:layout_below="@+id/toCur"
+        android:layout_marginTop="48dp"
+        android:text="TextView"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/valText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rateText"
+        android:layout_alignRight="@+id/rateText"
+        android:layout_below="@+id/rateText"
+        android:layout_marginTop="46dp"
+        android:text="TextView"
+        android:textSize="26sp" />
+
+</RelativeLayout>

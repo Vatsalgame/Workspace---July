@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AddExpense" >
+
+    <EditText
+        android:id="@+id/getAmtText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/enterAmtLabel"
+        android:layout_alignBottom="@+id/enterAmtLabel"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/addExpLabel"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner
+        android:id="@+id/cat_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/getAmtText"
+        android:layout_alignRight="@+id/getAmtText"
+        android:layout_alignTop="@+id/catLabel"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/addExpLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="Add an Expense"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/catLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enterAmtLabel"
+        android:layout_below="@+id/getAmtText"
+        android:layout_marginTop="24dp"
+        android:text="Category:"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/addExpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/cat_spinner"
+        android:layout_marginBottom="20dp"
+        android:onClick="enterExpense"
+        android:text="Add Expense"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/enterAmtLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addExpLabel"
+        android:layout_below="@+id/addExpLabel"
+        android:layout_marginTop="62dp"
+        android:text="Enter Amount:"
+        android:textSize="20sp" />
+
+</RelativeLayout>

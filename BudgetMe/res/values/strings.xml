@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BudgetMe</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="expense_button">Add Your Expenses</string>
+    <string name="status_button">Track Your Status</string>
+    <string name="title_activity_add_expense">AddExpense</string>
+    <string name="config_button">Configure</string>
+
+    <string-array name="category_array">
+        <item>Bill</item>
+        <item>Education</item>
+        <item>Food(Restaurant/Home)</item>
+        <item>Gas</item>
+        <item>Groceries</item>
+        <item>Rent</item>
+        <item>Repairs</item>
+        <item>Others</item>
+    </string-array>
+
+    <string name="title_activity_configure">Configure</string>
+    <string name="title_activity_track_status">TrackStatus</string>
+    <string name="title_activity_pie_chart">PieChart</string>
+    <string name="title_activity_chart_pie">ChartPie</string>
+
+</resources>
