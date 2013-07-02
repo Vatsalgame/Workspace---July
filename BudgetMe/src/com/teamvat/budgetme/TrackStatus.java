@@ -5,10 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -18,6 +21,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.teamvat.budgetme.BudgetReaderContract.BudgetEntry;
 
@@ -67,8 +71,22 @@ public class TrackStatus extends Activity {
 	
 	// for testing webview
 	public void goToPie(View view) {
-		Intent switchToPie = new Intent(this, ChartPie.class);
-		startActivity(switchToPie);
+		Context context = getApplicationContext();
+    	ConnectivityManager cm = (ConnectivityManager) 
+    			context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    	NetworkInfo ni = cm.getActiveNetworkInfo();
+    	if (ni != null) {
+    		if(ni.isConnected()) {
+    			Intent switchToPie = new Intent(this, ChartPie.class);
+    			startActivity(switchToPie);
+    		}
+    	}
+    	else {
+    		String msg = "Please connect to the Internet";
+    		// msg stays for 3.5 sec instead of 2 sec
+    		int duration = Toast.LENGTH_SHORT;
+    		Toast.makeText(context, msg, duration).show();
+    	}
 	}	
 	
 	public void updateStats() {

@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -87,7 +89,20 @@ public class CurrencyConverter extends Activity {
 
 	        public void onClick(View v) {
 //	            backTask.execute();
-	        	convert();
+	        	Context context = getApplicationContext();
+	        	ConnectivityManager cm = (ConnectivityManager) 
+	        			context.getSystemService(Context.CONNECTIVITY_SERVICE);
+	        	NetworkInfo ni = cm.getActiveNetworkInfo();
+	        	if (ni != null) {
+	        		if(ni.isConnected())
+	        			convert();
+	        	}
+	        	else {
+	        		String msg = "Please connect to the Internet";
+	        		// msg stays for 3.5 sec instead of 2 sec
+	        		int duration = Toast.LENGTH_SHORT;
+	        		Toast.makeText(context, msg, duration).show();
+	        	}
 	        }
 	    });
 	}
