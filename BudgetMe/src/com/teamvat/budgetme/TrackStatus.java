@@ -61,6 +61,12 @@ public class TrackStatus extends Activity {
 		super.onRestart();
 		updateStats();
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		updateStats();
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

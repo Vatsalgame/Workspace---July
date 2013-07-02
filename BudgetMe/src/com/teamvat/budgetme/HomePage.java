@@ -37,10 +37,23 @@ public class HomePage extends Activity {
 		}
 	}
 	
-	// if activity is paused and started again
+	// if activity is stopped and started again
 	@Override
 	public void onRestart() {
 		super.onRestart();
+		updateFields();
+		if(fieldValues.getBoolean("dailyStats", false)) {
+			dailyStatsUpdate();
+		}
+		else {
+			clearDailyStats();
+		}
+	}
+	
+	// if activity is paused and started again
+	@Override
+	public void onResume() {
+		super.onResume();
 		updateFields();
 		if(fieldValues.getBoolean("dailyStats", false)) {
 			dailyStatsUpdate();

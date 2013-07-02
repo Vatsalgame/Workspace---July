@@ -3,6 +3,8 @@ package com.teamvat.budgetme;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -49,6 +51,20 @@ public class Configure extends Activity {
 		yearlyBudget = monthlyBudget * 12;
 		dailyStats = configValues.getBoolean("dailyStats", false);
 		currency = configValues.getString("currency", "CAD");
+		
+		Context context = getApplicationContext();
+    	ConnectivityManager cm = (ConnectivityManager) 
+    			context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    	NetworkInfo ni = cm.getActiveNetworkInfo();
+    	if (ni == null) {
+    		curSpinner.setEnabled(false);
+    	}
+    	else {
+    		if(!ni.isConnected()) {
+    			curSpinner.setEnabled(false);
+    		}
+    	}
+		
 		setFields();
 	}
 
@@ -58,6 +74,46 @@ public class Configure extends Activity {
 		getMenuInflater().inflate(R.menu.configure, menu);
 		return true;
 	}
+	
+	// if activity is stopped and started again
+		@Override
+		public void onRestart() {
+			super.onRestart();
+			Spinner curSpinner = (Spinner) findViewById(R.id.curSpinner);
+			Context context = getApplicationContext();
+	    	ConnectivityManager cm = (ConnectivityManager) 
+	    			context.getSystemService(Context.CONNECTIVITY_SERVICE);
+	    	NetworkInfo ni = cm.getActiveNetworkInfo();
+	    	if (ni == null) {
+	    		curSpinner.setEnabled(false);
+	    	}
+	    	else if(!ni.isConnected()) {
+	    		curSpinner.setEnabled(false);
+	    	}
+	    	else {
+	    		curSpinner.setEnabled(true);
+	    	}
+		}
+		
+	// if activity is paused and started again
+		@Override
+		public void onResume() {
+			super.onResume();
+			Spinner curSpinner = (Spinner) findViewById(R.id.curSpinner);
+			Context context = getApplicationContext();
+			ConnectivityManager cm = (ConnectivityManager) 
+			    			context.getSystemService(Context.CONNECTIVITY_SERVICE);
+			NetworkInfo ni = cm.getActiveNetworkInfo();
+			if (ni == null) {
+				curSpinner.setEnabled(false);
+			}
+			else if(!ni.isConnected()) {
+				curSpinner.setEnabled(false);  
+			}
+			else {
+				curSpinner.setEnabled(true);
+			}
+		}
 	
 	// method to update the configurations
 	public void saveConfig(View view) {
