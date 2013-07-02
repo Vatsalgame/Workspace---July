@@ -9,9 +9,9 @@ import java.util.HashMap;
 import android.os.AsyncTask;
 import android.util.JsonReader;
 
-public class UrlJasonParser {
+public class UrlJsonParser {
 	
-	public HashMap getData(String url)  throws IOException {
+	public static HashMap getData(String url)  throws IOException {
 		HashMap summary = new HashMap();
 		
 		URL jsonUrl = new URL(url);
@@ -27,7 +27,7 @@ public class UrlJasonParser {
 		return summary;
 	}
 	
-	public HashMap readMessages(JsonReader reader) throws IOException {
+	public static HashMap readMessages(JsonReader reader) throws IOException {
 		String from = "", to = "";
 		double rate = 0.0, val = 0.0;
 		

@@ -36,7 +36,6 @@ public final class R {
         public static final int addExpButton=0x7f0a0000;
         public static final int addExpLabel=0x7f0a0001;
         public static final int addSwitchButton=0x7f0a001d;
-        public static final int button1=0x7f0a0019;
         public static final int catBills=0x7f0a0029;
         public static final int catEducation=0x7f0a002a;
         public static final int catFood=0x7f0a002b;
@@ -52,6 +51,7 @@ public final class R {
         public static final int configButton=0x7f0a001b;
         public static final int configLabel=0x7f0a000f;
         public static final int convArrowText=0x7f0a0015;
+        public static final int convButton=0x7f0a0019;
         public static final int convRateText=0x7f0a0018;
         public static final int convResText=0x7f0a0017;
         public static final int curConvLabel=0x7f0a0012;
@@ -62,8 +62,8 @@ public final class R {
         public static final int dayBudget=0x7f0a001e;
         public static final int dayRem=0x7f0a0021;
         public static final int daySpent=0x7f0a001f;
-        public static final int editText1=0x7f0a0013;
         public static final int enterAmtLabel=0x7f0a0004;
+        public static final int enterAmtText=0x7f0a0013;
         public static final int fromCurSpin=0x7f0a0014;
         public static final int getAmtText=0x7f0a0002;
         public static final int mBudgetText=0x7f0a0020;

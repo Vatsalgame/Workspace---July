@@ -134,7 +134,7 @@
         android:textSize="32sp" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/convButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/configButton"
