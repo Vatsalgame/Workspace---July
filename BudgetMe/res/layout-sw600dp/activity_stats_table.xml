@@ -13,12 +13,30 @@
         android:id="@+id/horizontalScrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-
-        <TableLayout
-            android:id="@+id/StatsTable"
+		
+        
+        <RelativeLayout
+            android:id="@+id/relStatsLay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
-        </TableLayout>
+        
+        	 <Spinner
+        		android:id="@+id/tableSpinner"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_alignParentLeft="true"
+        		android:layout_alignParentTop="true"
+        		 />
+            
+        	<TableLayout
+           	 	android:id="@+id/StatsTable"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:layout_marginTop="31dp"
+            	android:layout_below="@+id/tableSpinner" >
+        	</TableLayout>
+        	
+        </RelativeLayout>
     </HorizontalScrollView>
 
 </ScrollView>

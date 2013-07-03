@@ -1,5 +1,8 @@
 package com.teamvat.budgetme;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -9,9 +12,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.TypedValue;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.teamvat.budgetme.BudgetReaderContract.BudgetEntry;
 
@@ -20,14 +28,35 @@ public class StatsTable extends Activity {
 	TableLayout tl;
 	BudgetDbHelper bDbHelper;
 	SharedPreferences fieldValues;
+	public static String[] statVariants = {
+		"Stats (to Date)", "Stats (this Month)", "Stats (this Year)", "Stats (today)"
+	};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stats_table);
+		
+		// setting up the spinner
+		Spinner spinner = (Spinner) findViewById(R.id.tableSpinner);
+		ArrayAdapter<String> populator = new ArrayAdapter<String>(this, R.layout.spinner_item, statVariants);
+		spinner.setAdapter(populator);
+		
 		// trying to create a table
 		tl = (TableLayout) findViewById(R.id.StatsTable);
+		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+			
+			public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+				populateTable();
+			}
+			
+			public void onNothingSelected(AdapterView<?> adapterView) {
+				populateTable();
+			}	
+			
+		});
 		populateTable();
+		
 //		for(int i = 0; i < 30; i++) {
 //			TableRow tr = new TableRow(this);
 //			tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
@@ -60,6 +89,8 @@ public class StatsTable extends Activity {
 	
 	
 	public void populateTable() {
+		// clearing the existing table to create a fresh one
+		tl.removeAllViews();
 		// to get string size
 		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
 		Float stringSize = fieldValues.getFloat("stringSize", 18);
@@ -102,17 +133,51 @@ public class StatsTable extends Activity {
 		
 		tl.addView(headings, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
 		
-		// getting a readable database
-		bDbHelper = new BudgetDbHelper(getApplicationContext());
-		SQLiteDatabase db = bDbHelper.getReadableDatabase();
+		// getting the variant of stats demanded
+    	Spinner statType = (Spinner) findViewById(R.id.tableSpinner);
+    	String statDef = statType.getSelectedItem().toString();
+		
+    	// current date
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    	Date curr_date = new Date();
+    	String date = dateFormat.format(curr_date);
+    	
+    	// getting a readable database
+    	bDbHelper = new BudgetDbHelper(getApplicationContext());
+    	SQLiteDatabase db = bDbHelper.getReadableDatabase();
+    	
 		// creating the query, selecting everything
 		String[] projection = {
 				"*"
 		};
+		
+		String selection;
+    	String [] selectionArgs;
+    	
+    	if(statDef.equals(statVariants[1])) {
+    		selection = "Expense_date like ?";
+    		selectionArgs = new String[1];
+    		selectionArgs[0] = date.substring(0, 7) + "%";
+    	}
+    	else if(statDef.equals(statVariants[2])) {
+    		selection = "Expense_date like ?";
+    		selectionArgs = new String[1];
+    		selectionArgs[0] = date.substring(0, 3) + "%";
+    	}
+    	else if(statDef.equals(statVariants[3])) {
+    		selection = "Expense_date like ?";
+    		selectionArgs = new String[1];
+    		selectionArgs[0] = date;
+    	}
+    	else {
+    		selection = null;
+    		selectionArgs = null;
+    	}
+		
 		Cursor rowPointer = db.query(BudgetEntry.TABLE_NAME, 
 									 projection, 
-									 null, 
-									 null, 
+									 selection, 
+									 selectionArgs, 
 									 null, 
 									 null, 
 									 null);
