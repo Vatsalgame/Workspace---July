@@ -8,39 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".CurrencyConverter" >
 
-    <TextView
-        android:id="@+id/curConvLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="32dp"
-        android:text="Currency Converter"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="38sp" />
-
-    <TextView
-        android:id="@+id/enterAmtLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/curConvLabel"
-        android:layout_below="@+id/curConvLabel"
-        android:layout_marginTop="65dp"
-        android:text="Enter the amount to convert:"
-        android:textSize="32sp" />
-
-    <EditText
-        android:id="@+id/enterAmtText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/enterAmtLabel"
-        android:layout_alignRight="@+id/enterAmtLabel"
-        android:layout_below="@+id/enterAmtLabel"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:inputType="numberDecimal" />
-
     <Spinner
         android:id="@+id/fromCurSpin"
         android:layout_width="wrap_content"
@@ -57,7 +24,7 @@
         android:layout_alignTop="@+id/fromCurSpin"
         android:layout_centerHorizontal="true"
         android:text="switch"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/toCurSpin"
@@ -67,14 +34,49 @@
         android:layout_toRightOf="@+id/convArrowText" />
 
     <TextView
+        android:id="@+id/curConvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/toCurSpin"
+        android:layout_marginTop="16dp"
+        android:text="Currency Converter"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/enterAmtLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/curConvLabel"
+        android:layout_below="@+id/curConvLabel"
+        android:layout_marginTop="20dp"
+        android:text="Enter the amount to convert:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/enterAmtText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enterAmtLabel"
+        android:layout_below="@+id/enterAmtLabel"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
         android:id="@+id/convResText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/fromCurSpin"
-        android:layout_alignRight="@+id/toCurSpin"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/fromCurSpin"
+        android:layout_marginTop="19dp"
         android:text="Result"
-        android:textSize="36sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/convRateText"
@@ -82,9 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/convResText"
         android:layout_below="@+id/convResText"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="17dp"
         android:text="Rate:"
-        android:textSize="32sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/convButton"
@@ -92,9 +94,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/convRateText"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/convResText"
-        android:layout_marginBottom="110dp"
+        android:layout_alignRight="@+id/toCurSpin"
+        android:layout_marginBottom="18dp"
         android:text="Convert"
-        android:textSize="34sp" />
+        android:textSize="20sp" />
 
 </RelativeLayout>

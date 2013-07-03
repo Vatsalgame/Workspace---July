@@ -57,7 +57,12 @@
         </activity>
         <activity
             android:name="com.teamvat.budgetme.CurrencyConverter"
-            android:label="@string/title_activity_currency_converter" >
+            android:label="@string/title_activity_currency_converter"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.teamvat.budgetme.StatsTable"
+            android:label="@string/title_activity_stats_table" >
         </activity>
     </application>
 

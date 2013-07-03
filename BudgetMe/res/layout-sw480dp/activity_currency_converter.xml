@@ -66,35 +66,35 @@
         android:layout_alignTop="@+id/convArrowText"
         android:layout_toRightOf="@+id/convArrowText" />
 
-    <TextView
-        android:id="@+id/convResText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/fromCurSpin"
-        android:layout_alignRight="@+id/toCurSpin"
-        android:layout_centerVertical="true"
-        android:text="Result"
-        android:textSize="36sp" />
-
-    <TextView
-        android:id="@+id/convRateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/convResText"
-        android:layout_below="@+id/convResText"
-        android:layout_marginTop="73dp"
-        android:text="Rate:"
-        android:textSize="32sp" />
-
     <Button
         android:id="@+id/convButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/convRateText"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/convResText"
-        android:layout_marginBottom="110dp"
+        android:layout_alignRight="@+id/toCurSpin"
+        android:layout_marginBottom="44dp"
         android:text="Convert"
         android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/convRateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/convButton"
+        android:layout_alignLeft="@+id/convResText"
+        android:layout_marginBottom="26dp"
+        android:text="Rate:"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/convResText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/convRateText"
+        android:layout_alignLeft="@+id/fromCurSpin"
+        android:layout_marginBottom="34dp"
+        android:text="Result"
+        android:textSize="36sp" />
 
 </RelativeLayout>

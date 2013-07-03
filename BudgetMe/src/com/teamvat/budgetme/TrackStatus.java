@@ -29,6 +29,7 @@ public class TrackStatus extends Activity {
 	
 	BudgetDbHelper bDbHelper;
 	SharedPreferences fieldValues;
+	SharedPreferences.Editor fieldEdit;
 	public static String[] statVariants = {
 		"Stats (to Date)", "Stats (this Month)", "Stats (this Year)", "Stats (today)"
 	};
@@ -95,14 +96,22 @@ public class TrackStatus extends Activity {
     	}
 	}	
 	
+	// for testing stats table
+	public void goToTable(View view) {
+		Intent switchToTable = new Intent(this, StatsTable.class);
+		startActivity(switchToTable);
+	}
+	
 	public void updateStats() {
 		// getting the currency
 		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
+		fieldEdit = fieldValues.edit();
 		String currency = fieldValues.getString("currency", "CAD");
 		// getting a readable database
 		bDbHelper = new BudgetDbHelper(getApplicationContext());
 		SQLiteDatabase db = bDbHelper.getReadableDatabase();
 		// write a similar code as following for different categories
+		// update it to show sum as per the stat type specified
 		String[] projection = {
 				"sum(" + BudgetEntry.COLUMN_NAME_EXPENSE_AMT + ") AS 'SUM'"
 		};
@@ -133,6 +142,9 @@ public class TrackStatus extends Activity {
     	TextView rentExpenses = (TextView) findViewById(R.id.catRent);
     	TextView repExpenses = (TextView) findViewById(R.id.catRepairs);
     	TextView othExpenses = (TextView) findViewById(R.id.catOthers);
+    	
+    	fieldEdit.putFloat("stringSize", billExpenses.getTextSize());
+    	fieldEdit.commit();
     	
     	TextView[] catTextList = {
     			billExpenses, eduExpenses, foodExpenses, gasExpenses, groExpenses, rentExpenses, repExpenses, othExpenses

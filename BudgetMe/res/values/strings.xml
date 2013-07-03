@@ -25,5 +25,6 @@
     <string name="title_activity_pie_chart">PieChart</string>
     <string name="title_activity_chart_pie">ChartPie</string>
     <string name="title_activity_currency_converter">CurrencyConverter</string>
+    <string name="title_activity_stats_table">StatsTable</string>
 
 </resources>

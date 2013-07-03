@@ -139,4 +139,16 @@
         android:text="PieChart"
         android:textSize="28sp" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/convButton"
+        android:layout_alignLeft="@+id/convButton"
+        android:layout_alignRight="@+id/convButton"
+        android:layout_below="@+id/catGroceries"
+        android:text="Table"
+        android:textSize="28sp"
+        android:onClick="goToTable" />
+
 </RelativeLayout>
