@@ -1,6 +1,7 @@
 package com.teamvat.budgetme;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -134,12 +135,12 @@ public class CurrencyConverter extends Activity {
 	            	
 	            } catch (IOException e) {
 	                // TODO Auto-generated catch block
-//	                e.printStackTrace();
-	                Context context = getApplicationContext();
-	        		String msg = "Data Retrieval failed.";
-	        		// msg stays for 3.5 sec instead of 2 sec
-	        		int duration = Toast.LENGTH_SHORT;
-	        		Toast.makeText(context, msg, duration).show();
+	                e.printStackTrace();
+//	                Context context = getApplicationContext();
+//	        		String msg = "Data Retrieval failed.";
+//	        		// msg stays for 3.5 sec instead of 2 sec
+//	        		int duration = Toast.LENGTH_SHORT;
+//	        		Toast.makeText(context, msg, duration).show();
 	            }
 	            return null;
 	        }
@@ -147,10 +148,33 @@ public class CurrencyConverter extends Activity {
 	        @Override
 	        protected void onPostExecute(Void result) {
 	            super.onPostExecute(result);
-	            convResText.setText("" + summary.get("value"));
-	            convRateText.setText("" + summary.get("rate"));
+	            
+	            if(summary.get("rate") == null) {
+	            	Context context = getApplicationContext();
+	        		String msg = "Server Error";
+	        		// msg stays for 3.5 sec instead of 2 sec
+	        		int duration = Toast.LENGTH_SHORT;
+	        		Toast.makeText(context, msg, duration).show();
+	            }
+	            else {
+	            	// apparently, the json api can't handle same currency conversion
+	            	// even though it's extremely easy
+	            	// need a special case for it now
+	            	if(fromCur.equals(toCur)) {
+	            		convResText.setText("" + new DecimalFormat("#.##").format(amt) + " " + 
+		            			fromCur + " = " + new DecimalFormat("#.##").format(amt) + " " + toCur);
+			            convRateText.setText("@Rate: " + 
+			            		new DecimalFormat("#.##").format(1.0));
+	            	}
+	            	else {
+	            		convResText.setText("" + new DecimalFormat("#.##").format(amt) + " " + 
+		            			fromCur + " = " + new DecimalFormat("#.##").format(summary.get("value")) + 
+		            			" " + toCur);
+			            convRateText.setText("@Rate: " + 
+			            		new DecimalFormat("#.##").format(summary.get("rate")));
+	            	}
+	            }
 	        }
-
 	    };
 	    backTask.execute();
 	}

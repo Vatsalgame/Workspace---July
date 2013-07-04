@@ -18,7 +18,7 @@
         android:layout_marginTop="32dp"
         android:text="Currency Converter"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="38sp" />
+        android:textSize="42sp" />
 
     <TextView
         android:id="@+id/enterAmtLabel"
@@ -28,7 +28,7 @@
         android:layout_below="@+id/curConvLabel"
         android:layout_marginTop="65dp"
         android:text="Enter the amount to convert:"
-        android:textSize="32sp" />
+        android:textSize="38sp" />
 
     <EditText
         android:id="@+id/enterAmtText"
@@ -48,23 +48,23 @@
         android:layout_alignLeft="@+id/enterAmtText"
         android:layout_below="@+id/enterAmtText"
         android:layout_marginTop="25dp"
-        android:layout_toLeftOf="@+id/convArrowText" />
+        android:layout_toLeftOf="@+id/switchButton" />
 
     <Button
-        android:id="@+id/convArrowText"
+        android:id="@+id/switchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/fromCurSpin"
         android:layout_centerHorizontal="true"
         android:text="switch"
-        android:textSize="30sp" />
+        android:textSize="38sp" />
 
     <Spinner
         android:id="@+id/toCurSpin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/convArrowText"
-        android:layout_toRightOf="@+id/convArrowText" />
+        android:layout_alignTop="@+id/switchButton"
+        android:layout_toRightOf="@+id/switchButton" />
 
     <TextView
         android:id="@+id/convResText"
@@ -74,7 +74,7 @@
         android:layout_alignRight="@+id/toCurSpin"
         android:layout_centerVertical="true"
         android:text="Result"
-        android:textSize="36sp" />
+        android:textSize="38sp" />
 
     <TextView
         android:id="@+id/convRateText"
@@ -84,7 +84,7 @@
         android:layout_below="@+id/convResText"
         android:layout_marginTop="73dp"
         android:text="Rate:"
-        android:textSize="32sp" />
+        android:textSize="38sp" />
 
     <Button
         android:id="@+id/convButton"
@@ -95,6 +95,6 @@
         android:layout_alignRight="@+id/convResText"
         android:layout_marginBottom="110dp"
         android:text="Convert"
-        android:textSize="34sp" />
+        android:textSize="40sp" />
 
 </RelativeLayout>

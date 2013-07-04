@@ -129,7 +129,7 @@
         android:textSize="26sp" />
 
     <Button
-        android:id="@+id/convButton"
+        android:id="@+id/pieButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/catOthers"
@@ -140,15 +140,15 @@
         android:textSize="28sp" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/tableButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/convButton"
-        android:layout_alignLeft="@+id/convButton"
-        android:layout_alignRight="@+id/convButton"
+        android:layout_above="@+id/pieButton"
+        android:layout_alignLeft="@+id/pieButton"
+        android:layout_alignRight="@+id/pieButton"
         android:layout_below="@+id/catGroceries"
+        android:onClick="goToTable"
         android:text="Table"
-        android:textSize="28sp"
-        android:onClick="goToTable" />
+        android:textSize="28sp" />
 
 </RelativeLayout>

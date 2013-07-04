@@ -125,7 +125,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/convButton"
+        android:id="@+id/pieButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/catOthers"
@@ -134,6 +134,18 @@
         android:layout_toRightOf="@+id/totalExpense"
         android:onClick="goToPie"
         android:text="PieChart"
-        android:textSize="28sp" />
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/tableButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pieButton"
+        android:layout_alignLeft="@+id/pieButton"
+        android:layout_alignRight="@+id/pieButton"
+        android:layout_below="@+id/catGroceries"
+        android:onClick="goToTable"
+        android:text="Table"
+        android:textSize="24sp" />
 
 </RelativeLayout>

@@ -48,10 +48,10 @@
         android:layout_alignLeft="@+id/enterAmtText"
         android:layout_below="@+id/enterAmtText"
         android:layout_marginTop="25dp"
-        android:layout_toLeftOf="@+id/convArrowText" />
+        android:layout_toLeftOf="@+id/switchButton" />
 
     <Button
-        android:id="@+id/convArrowText"
+        android:id="@+id/switchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/fromCurSpin"
@@ -63,8 +63,8 @@
         android:id="@+id/toCurSpin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/convArrowText"
-        android:layout_toRightOf="@+id/convArrowText" />
+        android:layout_alignTop="@+id/switchButton"
+        android:layout_toRightOf="@+id/switchButton" />
 
     <TextView
         android:id="@+id/convResText"
