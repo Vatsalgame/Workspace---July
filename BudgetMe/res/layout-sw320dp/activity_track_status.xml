@@ -19,28 +19,6 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/catWiseExp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/totalExpense"
-        android:layout_below="@+id/totalExpense"
-        android:layout_marginTop="22dp"
-        android:text="Category-wise expenses"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/catEducation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catBills"
-        android:layout_below="@+id/catBills"
-        android:layout_marginTop="14dp"
-        android:text="in Education:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <TextView
         android:id="@+id/catGas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,13 +81,35 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true" />
 
-    <TextView
-        android:id="@+id/catFood"
+    <Button
+        android:id="@+id/pieButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catEducation"
-        android:layout_centerVertical="true"
-        android:text="in Food:"
+        android:layout_alignBottom="@+id/catOthers"
+        android:layout_alignParentRight="true"
+        android:text="PieChart"
+        android:textSize="18sp"
+        android:onClick="goToPie" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pieButton"
+        android:layout_alignLeft="@+id/pieButton"
+        android:layout_alignParentRight="true"
+        android:text="Table"
+        android:textSize="18sp"
+        android:onClick="goToTable" />
+
+    <TextView
+        android:id="@+id/catWiseExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalExpense"
+        android:layout_below="@+id/totalExpense"
+        android:layout_marginTop="15dp"
+        android:text="Category-wise expenses"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp" />
 
@@ -124,27 +124,26 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/pieButton"
+    <TextView
+        android:id="@+id/catFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/catOthers"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/catRepairs"
-        android:onClick="goToPie"
-        android:text="PieChart"
-        android:textSize="18sp" />
+        android:layout_alignLeft="@+id/catEducation"
+       	android:layout_below="@+id/catEducation"
+       	android:layout_marginTop="14dp"
+        android:text="in Food:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/tableButton"
+    <TextView
+        android:id="@+id/catEducation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/catRent"
-        android:layout_alignBottom="@+id/catRent"
-        android:layout_alignLeft="@+id/pieButton"
-        android:layout_alignRight="@+id/pieButton"
-        android:onClick="goToTable"
-        android:text="Table"
-        android:textSize="18sp" />
+        android:layout_alignLeft="@+id/catBills"
+        android:layout_below="@+id/catBills"
+        android:layout_marginTop="14dp"
+        android:text="in Education:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
 
 </RelativeLayout>

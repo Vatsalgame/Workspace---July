@@ -34,10 +34,11 @@ public final class R {
         public static final int RelativeLayout1=0x7f0a001a;
         public static final int ScrollView1=0x7f0a0026;
         public static final int StatsTable=0x7f0a002a;
-        public static final int action_settings=0x7f0a0038;
+        public static final int action_settings=0x7f0a0039;
         public static final int addExpButton=0x7f0a0000;
         public static final int addExpLabel=0x7f0a0001;
         public static final int addSwitchButton=0x7f0a001d;
+        public static final int button1=0x7f0a0037;
         public static final int catBills=0x7f0a002e;
         public static final int catEducation=0x7f0a002f;
         public static final int catFood=0x7f0a0030;
@@ -80,7 +81,7 @@ public final class R {
         public static final int saveButton=0x7f0a0011;
         public static final int statLabel=0x7f0a002b;
         public static final int switchButton=0x7f0a0014;
-        public static final int tableButton=0x7f0a0037;
+        public static final int tableButton=0x7f0a0038;
         public static final int tableSpinner=0x7f0a0029;
         public static final int toCurSpin=0x7f0a0015;
         public static final int totalExpense=0x7f0a002c;

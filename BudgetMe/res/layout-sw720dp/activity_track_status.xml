@@ -107,17 +107,6 @@
         android:textSize="38sp" />
 
     <TextView
-        android:id="@+id/catOthers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catRepairs"
-        android:layout_below="@+id/catRepairs"
-        android:layout_marginTop="33dp"
-        android:text="in Others:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="38sp" />
-
-    <TextView
         android:id="@+id/catBills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -135,9 +124,19 @@
         android:layout_alignBottom="@+id/catOthers"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/catRepairs"
-        android:layout_toRightOf="@+id/totalExpense"
-        android:onClick="goToPie"
         android:text="PieChart"
+        android:textSize="38sp"
+        android:onClick="goToPie" />
+
+    <TextView
+        android:id="@+id/catOthers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catRepairs"
+        android:layout_below="@+id/catRepairs"
+        android:layout_marginTop="44dp"
+        android:text="in Others:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="38sp" />
 
     <Button
@@ -146,10 +145,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/pieButton"
         android:layout_alignLeft="@+id/pieButton"
-        android:layout_alignParentRight="true"
+        android:layout_alignRight="@+id/pieButton"
         android:layout_below="@+id/catGroceries"
-        android:onClick="goToTable"
         android:text="Table"
-        android:textSize="38sp" />
+        android:textSize="38sp"
+        android:onClick="goToTable" />
 
 </RelativeLayout>

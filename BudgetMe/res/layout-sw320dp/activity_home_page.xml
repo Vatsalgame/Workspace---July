@@ -16,17 +16,17 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/moneySpentText"
         android:layout_below="@+id/moneySpentText"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="8dp"
         android:text="Money Remaining:"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/trackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/mBudgetText"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginBottom="15dp"
         android:minHeight="48dp"
         android:minWidth="64dp"
@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/trackButton"
+        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/trackButton"
         android:minHeight="48dp"
         android:minWidth="64dp"
@@ -51,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/trackButton"
+        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/trackButton"
         android:layout_marginLeft="16dp"
         android:layout_toRightOf="@+id/addSwitchButton"
@@ -66,9 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/dailyStat"
         android:layout_below="@+id/dailyStat"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Budget for the day:"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/daySpent"
@@ -76,9 +78,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/dayBudget"
         android:layout_below="@+id/dayBudget"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Money Spent:"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/dayRem"
@@ -86,9 +88,31 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/daySpent"
         android:layout_below="@+id/daySpent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:text="Money Remaining:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/dailyStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/remainderText"
+        android:layout_below="@+id/remainderText"
+        android:layout_marginTop="12dp"
+        android:text="Daily Stats:"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/convButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/addSwitchButton"
+        android:layout_alignLeft="@+id/configButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/addSwitchButton"
+        android:onClick="switchToCurConverter"
+        android:text="Convert Currency"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/monStats"
@@ -105,10 +129,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/monStats"
         android:layout_below="@+id/monStats"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Budget for this month: "
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/moneySpentText"
@@ -116,31 +140,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/mBudgetText"
         android:layout_below="@+id/mBudgetText"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Money Spent"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/dailyStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/remainderText"
-        android:layout_below="@+id/remainderText"
-        android:layout_marginTop="16dp"
-        android:text="Daily Stats:"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/convButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/addSwitchButton"
-        android:layout_alignLeft="@+id/configButton"
-        android:layout_alignRight="@+id/configButton"
-        android:layout_alignTop="@+id/addSwitchButton"
-        android:onClick="switchToCurConverter"
-        android:text="Convert Currency"
         android:textSize="18sp" />
 
 </RelativeLayout>

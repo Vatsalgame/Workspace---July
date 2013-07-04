@@ -19,17 +19,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="26sp" />
 
-    <TextView
-        android:id="@+id/catWiseExp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/totalExpense"
-        android:layout_below="@+id/totalExpense"
-        android:layout_marginTop="36dp"
-        android:text="Category-wise expenses"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="24sp" />
-
     <Spinner
         android:id="@+id/statLabel"
         android:layout_width="wrap_content"
@@ -56,16 +45,6 @@
         android:layout_below="@+id/catBills"
         android:layout_marginTop="26dp"
         android:text="in Education:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/catFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catEducation"
-        android:layout_centerVertical="true"
-        android:text="in Food:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="24sp" />
 
@@ -131,7 +110,6 @@
         android:layout_alignBottom="@+id/catOthers"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/catRepairs"
-        android:layout_toRightOf="@+id/totalExpense"
         android:onClick="goToPie"
         android:text="PieChart"
         android:textSize="24sp" />
@@ -142,10 +120,32 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/pieButton"
         android:layout_alignLeft="@+id/pieButton"
-        android:layout_alignRight="@+id/pieButton"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/catGroceries"
         android:onClick="goToTable"
         android:text="Table"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/catWiseExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalExpense"
+        android:layout_below="@+id/totalExpense"
+        android:layout_marginTop="24dp"
+        android:text="Category-wise expenses"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/catFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catEducation"
+        android:layout_below="@+id/catEducation"
+        android:layout_marginTop="21dp"
+        android:text="in Food:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="24sp" />
 
 </RelativeLayout>
