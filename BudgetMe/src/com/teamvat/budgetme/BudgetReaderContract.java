@@ -17,6 +17,7 @@ public final class BudgetReaderContract {
 		public static final String COLUMN_NAME_EXPENSE_AMT = "Amount";
 		public static final String COLUMN_NAME_EXPENSE_CAT = "Category";
 		public static final String COLUMN_NAME_EXPENSE_DATE = "Expense_Date";
+		public static final String COLUMN_NAME_EXPENSE_CUR = "Expense_Currency";
 	}
 	
 }

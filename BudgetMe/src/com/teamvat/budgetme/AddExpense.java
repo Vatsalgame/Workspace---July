@@ -57,6 +57,9 @@ public class AddExpense extends Activity {
 		// getting the correct ID
 		BudgetEntry.entryID = fieldValues.getInt("entryID", 1);
 		
+		// getting the currency
+		String currency = fieldValues.getString("currency", "CAD");
+		
 		// getting the amount
 		EditText editAmt = (EditText) findViewById(R.id.getAmtText);
     	Double amt = Double.parseDouble(editAmt.getText().toString());
@@ -70,6 +73,7 @@ public class AddExpense extends Activity {
     	// change to get apt values
     	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_ID, BudgetEntry.entryID);
     	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_AMT, amt);
+    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CUR, currency);
     	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CAT, category);
     	
     	// readying the date

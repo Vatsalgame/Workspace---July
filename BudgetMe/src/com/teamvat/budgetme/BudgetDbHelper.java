@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class BudgetDbHelper extends SQLiteOpenHelper{
-	public static final int DATABASE_VERSION = 1;
+	public static final int DATABASE_VERSION = 2;
 	public static final String DATABASE_NAME = "BudgetReader.db";
 	
 	private static final String TEXT_TYPE = " TEXT";
@@ -20,6 +20,7 @@ public class BudgetDbHelper extends SQLiteOpenHelper{
 			BudgetReaderContract.BudgetEntry._ID + " INTEGER PRIMARY KEY," +
 			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_ID + INT_TYPE + COMMA_SEP +
 			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_AMT + REAL_TYPE + COMMA_SEP +
+			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_CUR + TEXT_TYPE + COMMA_SEP +
 			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_CAT + TEXT_TYPE + COMMA_SEP +
 			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_DATE + TEXT_TYPE + ");";
 	

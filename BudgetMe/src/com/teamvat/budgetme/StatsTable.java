@@ -114,6 +114,14 @@ public class StatsTable extends Activity {
 		amtCol.setTypeface(null, Typeface.BOLD_ITALIC);
 		amtCol.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 		headings.addView(amtCol);
+		// for column Currency
+		TextView curCol = new TextView(this);
+		curCol.setText("Currency");
+		curCol.setPadding(20, 5, 20, 5);
+		curCol.setTextSize(TypedValue.COMPLEX_UNIT_PX ,stringSize + 4);
+		curCol.setTypeface(null, Typeface.BOLD_ITALIC);
+		curCol.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+		headings.addView(curCol);
 		// for column Category
 		TextView catCol = new TextView(this);
 		catCol.setText("Category");
@@ -183,13 +191,14 @@ public class StatsTable extends Activity {
 									 null);
 		String[] columns = {
 				BudgetEntry.COLUMN_NAME_EXPENSE_ID, BudgetEntry.COLUMN_NAME_EXPENSE_AMT,
+				BudgetEntry.COLUMN_NAME_EXPENSE_CUR,
 				BudgetEntry.COLUMN_NAME_EXPENSE_CAT, BudgetEntry.COLUMN_NAME_EXPENSE_DATE
 		};
 		while (rowPointer.moveToNext()) {
 			TableRow row = new TableRow(this);
 			for(int i = 0; i < columns.length; i++) {
 				TextView entry = new TextView(this);
-				 entry.setText("" + rowPointer.getString(rowPointer.getColumnIndex(columns[i])));
+				entry.setText("" + rowPointer.getString(rowPointer.getColumnIndex(columns[i])));
 				entry.setPadding(20, 5, 20, 5);
 				entry.setTextSize(TypedValue.COMPLEX_UNIT_PX ,stringSize);
 				entry.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
