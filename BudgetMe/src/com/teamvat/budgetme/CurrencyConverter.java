@@ -115,6 +115,14 @@ public class CurrencyConverter extends Activity {
 		return true;
 	}
 	
+	// to switch currencies
+	public void switchCurrency(View view) {
+		int fromCurPos = fromSpinner.getSelectedItemPosition();
+    	int toCurPos = toSpinner.getSelectedItemPosition();
+    	fromSpinner.setSelection(toCurPos);
+    	toSpinner.setSelection(fromCurPos);
+	}
+	
 	public void convert() {
 		final TextView amtText = (TextView) findViewById(R.id.enterAmtText);
 		final TextView convResText = (TextView) findViewById(R.id.convResText);

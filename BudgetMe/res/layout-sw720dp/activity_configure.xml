@@ -25,7 +25,7 @@
         android:layout_alignRight="@+id/monBudgetText"
         android:text="Calculated"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30sp" />
+        android:textSize="34sp" />
 
     <EditText
         android:id="@+id/monBudgetText"
@@ -35,7 +35,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="47dp"
         android:ems="10"
-        android:inputType="numberDecimal" >
+        android:inputType="numberDecimal"
+        android:textSize="34sp" >
 
         <requestFocus />
     </EditText>
@@ -48,7 +49,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="34dp"
         android:text="Configurations"
-        android:textSize="34sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/monBudgetLabel"
@@ -58,7 +59,7 @@
         android:layout_below="@+id/configLabel"
         android:layout_marginTop="106dp"
         android:text="Monthly Budget:"
-        android:textSize="30sp" />
+        android:textSize="34sp" />
 
     <TextView
         android:id="@+id/yrBudgetLabel"
@@ -69,7 +70,7 @@
         android:layout_marginLeft="19dp"
         android:layout_marginTop="61dp"
         android:text="Yearly Budget:"
-        android:textSize="30sp" />
+        android:textSize="34sp" />
 
     <CheckBox
         android:id="@+id/dailyStatCheck"
@@ -78,7 +79,7 @@
         android:layout_alignLeft="@+id/yrBudgetLabel"
         android:layout_centerVertical="true"
         android:text="Show Daily Stats on Home Screen"
-        android:textSize="30sp" />
+        android:textSize="34sp" />
 
     <TextView
         android:id="@+id/curLabel"
@@ -89,7 +90,7 @@
         android:layout_marginTop="51dp"
         android:text="Choose Currency:"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30sp" />
+        android:textSize="34sp" />
 
     <Button
         android:id="@+id/saveButton"
@@ -97,10 +98,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/curLabel"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/dailyStatCheck"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="98dp"
+        android:onClick="saveConfig"
         android:text="Save &amp; Update"
-        android:textSize="30sp"
-        android:onClick="saveConfig" />
+        android:textSize="34sp" />
 
 </RelativeLayout>

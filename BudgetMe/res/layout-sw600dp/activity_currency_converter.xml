@@ -57,7 +57,8 @@
         android:layout_alignTop="@+id/fromCurSpin"
         android:layout_centerHorizontal="true"
         android:text="switch"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:onClick="switchCurrency" />
 
     <Spinner
         android:id="@+id/toCurSpin"
