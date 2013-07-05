@@ -39,6 +39,7 @@
         android:layout_marginLeft="25dp"
         android:layout_toRightOf="@+id/addExpLabel"
         android:ems="10"
+        android:hint="0.00"
         android:inputType="numberDecimal" >
 
         <requestFocus />
@@ -73,5 +74,26 @@
         android:layout_marginTop="48dp"
         android:text="Add an Expense"
         android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/notesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catLabel"
+        android:layout_below="@+id/cat_spinner"
+        android:layout_marginTop="43dp"
+        android:text="Expense Notes:"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/descText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/notesLabel"
+        android:layout_alignBottom="@+id/notesLabel"
+        android:layout_alignLeft="@+id/cat_spinner"
+        android:ems="10"
+        android:hint="Enter Expense&apos;s Description \n(multi- line encouraged)"
+        android:inputType="textAutoCorrect|textAutoComplete|textMultiLine" />
 
 </RelativeLayout>

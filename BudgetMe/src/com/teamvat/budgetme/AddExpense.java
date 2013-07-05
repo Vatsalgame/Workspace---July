@@ -70,6 +70,9 @@ public class AddExpense extends Activity {
     	Spinner spinCat = (Spinner) findViewById(R.id.cat_spinner);
     	String category = spinCat.getSelectedItem().toString();
     	
+    	EditText descText = (EditText) findViewById(R.id.descText);
+    	String desc = descText.getText().toString();
+    	
     	//creating the new expense row to be added
     	ContentValues values = new ContentValues();
     	// change to get apt values
@@ -82,6 +85,8 @@ public class AddExpense extends Activity {
     	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     	Date curr_date = new Date();
     	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_DATE, dateFormat.format(curr_date));
+    	
+    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_DESC, desc);
     	
     	//inserting the new expense
     	long newRowId = db.insert(BudgetEntry.TABLE_NAME, null, values);

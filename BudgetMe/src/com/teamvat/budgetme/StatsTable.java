@@ -138,6 +138,14 @@ public class StatsTable extends Activity {
 		dateCol.setTypeface(null, Typeface.BOLD_ITALIC);
 		dateCol.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 		headings.addView(dateCol);
+		// for column Description
+		TextView descCol = new TextView(this);
+		descCol.setText("Description");
+		descCol.setPadding(20, 5, 20, 5);
+		descCol.setTextSize(TypedValue.COMPLEX_UNIT_PX, stringSize + 4);
+		descCol.setTypeface(null, Typeface.BOLD_ITALIC);
+		descCol.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+		headings.addView(descCol);
 		
 		tl.addView(headings, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
 		
@@ -191,8 +199,8 @@ public class StatsTable extends Activity {
 									 null);
 		String[] columns = {
 				BudgetEntry.COLUMN_NAME_EXPENSE_ID, BudgetEntry.COLUMN_NAME_EXPENSE_AMT,
-				BudgetEntry.COLUMN_NAME_EXPENSE_CUR,
-				BudgetEntry.COLUMN_NAME_EXPENSE_CAT, BudgetEntry.COLUMN_NAME_EXPENSE_DATE
+				BudgetEntry.COLUMN_NAME_EXPENSE_CUR, BudgetEntry.COLUMN_NAME_EXPENSE_CAT, 
+				BudgetEntry.COLUMN_NAME_EXPENSE_DATE, BudgetEntry.COLUMN_NAME_EXPENSE_DESC
 		};
 		while (rowPointer.moveToNext()) {
 			TableRow row = new TableRow(this);

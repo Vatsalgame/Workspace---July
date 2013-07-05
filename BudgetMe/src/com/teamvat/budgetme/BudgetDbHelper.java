@@ -22,7 +22,8 @@ public class BudgetDbHelper extends SQLiteOpenHelper{
 			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_AMT + REAL_TYPE + COMMA_SEP +
 			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_CUR + TEXT_TYPE + COMMA_SEP +
 			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_CAT + TEXT_TYPE + COMMA_SEP +
-			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_DATE + TEXT_TYPE + ");";
+			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_DATE + TEXT_TYPE + COMMA_SEP +
+			BudgetReaderContract.BudgetEntry.COLUMN_NAME_EXPENSE_DESC + TEXT_TYPE + ");";
 	
 	private static final String DELETE_TABLE = 
 			"DROP TABLE IF EXISTS " + BudgetReaderContract.BudgetEntry.TABLE_NAME;
