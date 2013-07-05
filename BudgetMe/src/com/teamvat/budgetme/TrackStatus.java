@@ -115,20 +115,18 @@ public class TrackStatus extends Activity {
 		String[] projection = {
 				"sum(" + BudgetEntry.COLUMN_NAME_EXPENSE_AMT + ") AS 'SUM'"
 		};
-		Cursor rowPointer = db.query(BudgetEntry.TABLE_NAME, 
-				 projection, 
-				 null, 
-				 null, 
-				 null, 
-				 null, 
-				 null);
+//		Cursor rowPointer = db.query(BudgetEntry.TABLE_NAME, 
+//				 projection, 
+//				 null, 
+//				 null, 
+//				 null, 
+//				 null, 
+//				 null);
 		Double totalExpense = 0.00;
-		while (rowPointer.moveToNext()) {
-    		totalExpense = rowPointer.getDouble(rowPointer.getColumnIndex("SUM"));
-    	}
-		TextView totalExpenses = (TextView) findViewById(R.id.totalExpense);
-    	totalExpenses.setText("Total Expenditure (to date): " + 
-    							new DecimalFormat("#.##").format(totalExpense) + " " + currency);
+//		while (rowPointer.moveToNext()) {
+//    		totalExpense = rowPointer.getDouble(rowPointer.getColumnIndex("SUM"));
+//    	}
+		
     	
     	TextView catExps = (TextView) findViewById(R.id.catWiseExp);
     	catExps.setText("Category-wise expenses (in " + currency + ")");
@@ -182,7 +180,7 @@ public class TrackStatus extends Activity {
     		selection = "Category like ?";
         	selectionArgs = new String[1];
     	}   	
-    	
+    	Cursor rowPointer;
     	for(int i = 0; i < AddExpense.categories.length; i++) {
     		catExpenses[i] = 0.00;
     		selectionArgs[0] = AddExpense.categories[i];
@@ -196,8 +194,14 @@ public class TrackStatus extends Activity {
     		while (rowPointer.moveToNext()) {
         		catExpenses[i] = rowPointer.getDouble(rowPointer.getColumnIndex("SUM"));
         	}
-    		catTextList[i].setText(AddExpense.categories[i] + ": " + new DecimalFormat("#.##").format(catExpenses[i]));    		
+    		catTextList[i].setText(AddExpense.categories[i] + ": " + new DecimalFormat("#.##").format(catExpenses[i]));
+    		totalExpense += catExpenses[i];
     	}
+    	// changed getting total expenses to date to just getting total expenses as per
+    	// the stat variant chosen by the user
+    	TextView totalExpenses = (TextView) findViewById(R.id.totalExpense);
+    	totalExpenses.setText("Total Expenditure: " + 
+    							new DecimalFormat("#.##").format(totalExpense) + " " + currency);
 	}
 
 }
