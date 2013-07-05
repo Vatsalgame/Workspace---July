@@ -74,4 +74,26 @@
         android:text="Category:"
         android:textSize="44sp" />
 
+    <TextView
+        android:id="@+id/notesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catLabel"
+        android:layout_below="@+id/cat_spinner"
+        android:layout_marginTop="60dp"
+        android:text="Expense Notes:"
+        android:textSize="44sp" />
+
+    <EditText
+        android:id="@+id/descText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cat_spinner"
+        android:layout_alignRight="@+id/cat_spinner"
+        android:layout_alignTop="@+id/notesLabel"
+        android:ems="10"
+        android:hint="Enter Expense&apos;s Description \n(multi- line encouraged)"
+        android:inputType="textAutoCorrect|textAutoComplete|textMultiLine"
+        android:textSize="26sp" />
+
 </RelativeLayout>

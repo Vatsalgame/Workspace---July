@@ -73,4 +73,24 @@
         android:text="Enter Amount:"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/notesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catLabel"
+        android:layout_below="@+id/cat_spinner"
+        android:text="Expense Notes:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/descText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cat_spinner"
+        android:layout_toRightOf="@+id/addExpLabel"
+        android:ems="10"
+        android:hint="Expense Description"
+        android:inputType="textAutoCorrect|textAutoComplete|textMultiLine" />
+
 </RelativeLayout>
