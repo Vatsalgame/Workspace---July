@@ -1,6 +1,7 @@
 package com.teamvat.budgetme;
 
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -63,7 +64,8 @@ public class AddExpense extends Activity {
 		// getting the amount
 		EditText editAmt = (EditText) findViewById(R.id.getAmtText);
     	Double amt = Double.parseDouble(editAmt.getText().toString());
-    	
+    	String editedAmt = new DecimalFormat("#.##").format(amt);
+    	Double newAmt = Double.parseDouble(editedAmt);
     	// getting the category
     	Spinner spinCat = (Spinner) findViewById(R.id.cat_spinner);
     	String category = spinCat.getSelectedItem().toString();
@@ -72,7 +74,7 @@ public class AddExpense extends Activity {
     	ContentValues values = new ContentValues();
     	// change to get apt values
     	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_ID, BudgetEntry.entryID);
-    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_AMT, amt);
+    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_AMT, newAmt);
     	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CUR, currency);
     	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CAT, category);
     	

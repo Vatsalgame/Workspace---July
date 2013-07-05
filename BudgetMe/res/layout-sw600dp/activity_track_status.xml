@@ -136,7 +136,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/catRepairs"
         android:onClick="goToPie"
-        android:text="PieChart"
+        android:text="Pie Chart"
         android:textSize="28sp" />
 
     <Button
@@ -149,6 +149,17 @@
         android:layout_below="@+id/catGroceries"
         android:onClick="goToTable"
         android:text="Table"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/viewStatsAsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/catGroceries"
+        android:layout_alignLeft="@+id/tableButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/catGas"
+        android:text="View Stats as a:"
         android:textSize="28sp" />
 
 </RelativeLayout>

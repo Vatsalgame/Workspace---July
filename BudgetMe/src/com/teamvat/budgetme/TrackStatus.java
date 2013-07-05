@@ -122,7 +122,7 @@ public class TrackStatus extends Activity {
 				 null, 
 				 null, 
 				 null);
-		Double totalExpense = 0.0;
+		Double totalExpense = 0.00;
 		while (rowPointer.moveToNext()) {
     		totalExpense = rowPointer.getDouble(rowPointer.getColumnIndex("SUM"));
     	}
@@ -184,7 +184,7 @@ public class TrackStatus extends Activity {
     	}   	
     	
     	for(int i = 0; i < AddExpense.categories.length; i++) {
-    		catExpenses[i] = 0.0;
+    		catExpenses[i] = 0.00;
     		selectionArgs[0] = AddExpense.categories[i];
     		rowPointer = db.query(BudgetEntry.TABLE_NAME, 
 					 			  projection, 

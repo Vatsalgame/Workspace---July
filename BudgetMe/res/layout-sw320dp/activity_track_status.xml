@@ -87,9 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/catOthers"
         android:layout_alignParentRight="true"
-        android:text="PieChart"
-        android:textSize="18sp"
-        android:onClick="goToPie" />
+        android:onClick="goToPie"
+        android:text="Pie Chart"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/button1"
@@ -98,9 +98,9 @@
         android:layout_above="@+id/pieButton"
         android:layout_alignLeft="@+id/pieButton"
         android:layout_alignParentRight="true"
+        android:onClick="goToTable"
         android:text="Table"
-        android:textSize="18sp"
-        android:onClick="goToTable" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/catWiseExp"
@@ -145,5 +145,16 @@
         android:text="in Education:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/viewStatsAsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/catGas"
+        android:text="View Stats as a:"
+        android:textSize="18sp" />
 
 </RelativeLayout>

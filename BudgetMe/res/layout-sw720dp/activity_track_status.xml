@@ -124,9 +124,9 @@
         android:layout_alignBottom="@+id/catOthers"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/catRepairs"
-        android:text="PieChart"
-        android:textSize="38sp"
-        android:onClick="goToPie" />
+        android:onClick="goToPie"
+        android:text="Pie Chart"
+        android:textSize="38sp" />
 
     <TextView
         android:id="@+id/catOthers"
@@ -147,8 +147,19 @@
         android:layout_alignLeft="@+id/pieButton"
         android:layout_alignRight="@+id/pieButton"
         android:layout_below="@+id/catGroceries"
+        android:onClick="goToTable"
         android:text="Table"
-        android:textSize="38sp"
-        android:onClick="goToTable" />
+        android:textSize="38sp" />
+
+    <TextView
+        android:id="@+id/viewStatsAsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tableButton"
+        android:layout_alignLeft="@+id/tableButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/catGas"
+        android:text="View Stats as a:"
+        android:textSize="36sp" />
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.teamvat.budgetme;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -75,7 +76,7 @@ public class Configure extends Activity {
 		configValues = PreferenceManager.getDefaultSharedPreferences(this);
 		configEdit = configValues.edit();
 		
-		monthlyBudget = configValues.getFloat("monthlyBudget", 0.0f);
+		monthlyBudget = configValues.getFloat("monthlyBudget", 0.00f);
 		yearlyBudget = monthlyBudget * 12;
 		dailyStats = configValues.getBoolean("dailyStats", false);
 		currency = configValues.getString("currency", "CAD");
@@ -193,10 +194,10 @@ public class Configure extends Activity {
 	// method to set the fields to current values
 	public void setFields() {
 		TextView monBudget = (TextView) findViewById(R.id.monBudgetText);
-		monBudget.setText("" + monthlyBudget + " " + currency);
+		monBudget.setText("" + new DecimalFormat("#.##").format(monthlyBudget) + " " + currency);
 		
 		TextView yrBudget = (TextView) findViewById(R.id.yrBudgetText);
-		yrBudget.setText("" + yearlyBudget + " " + currency);
+		yrBudget.setText("" + new DecimalFormat("#.##").format(yearlyBudget) + " " + currency);
 		
 		CheckBox statCheck = (CheckBox) findViewById(R.id.dailyStatCheck);
 		statCheck.setChecked(dailyStats);

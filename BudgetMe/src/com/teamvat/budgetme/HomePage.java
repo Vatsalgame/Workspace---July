@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -27,6 +28,9 @@ public class HomePage extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home_page);
+		
+		TextView monStats = (TextView) findViewById(R.id.monStats);
+		monStats.setTypeface(null, Typeface.BOLD_ITALIC);
 		updateFields();
 		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
 		if(fieldValues.getBoolean("dailyStats", false)) {
@@ -156,9 +160,10 @@ public class HomePage extends Activity {
 		
 		TextView dailyStatText = (TextView) findViewById(R.id.dailyStat);
 		dailyStatText.setText("Daily Stats:");
+		dailyStatText.setTypeface(null, Typeface.BOLD_ITALIC);
 		
 		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
-		Float monthlyBudget = fieldValues.getFloat("monthlyBudget", 0.0f);
+		Float monthlyBudget = fieldValues.getFloat("monthlyBudget", 0.00f);
 		
 		TextView dayBudgetText = (TextView) findViewById(R.id.dayBudget);
 		Float dailyBudget = monthlyBudget/30;
@@ -184,7 +189,7 @@ public class HomePage extends Activity {
 				 null, 
 				 null, 
 				 null);
-    	Double totalDailyExpense = 0.0;
+    	Double totalDailyExpense = 0.00;
     	while (rowPointer.moveToNext()) {
     		totalDailyExpense = rowPointer.getDouble(rowPointer.getColumnIndex("SUM"));
     	}
@@ -210,7 +215,7 @@ public class HomePage extends Activity {
 	public void updateFields() {
 		// to get budget of the month
 		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
-		Float monthlyBudget = fieldValues.getFloat("monthlyBudget", 0.0f);
+		Float monthlyBudget = fieldValues.getFloat("monthlyBudget", 0.00f);
 		String currency = fieldValues.getString("currency", "CAD");
 		
 		TextView monBudgetText = (TextView) findViewById(R.id.mBudgetText);
@@ -238,7 +243,7 @@ public class HomePage extends Activity {
     								 null, 
     								 null, 
     								 null);
-    	Double totalMonthlyExpense = 0.0;
+    	Double totalMonthlyExpense = 0.00;
     	while (rowPointer.moveToNext()) {
     		totalMonthlyExpense = rowPointer.getDouble(rowPointer.getColumnIndex("SUM"));
     	}
