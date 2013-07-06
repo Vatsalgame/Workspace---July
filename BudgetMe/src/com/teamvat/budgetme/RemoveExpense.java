@@ -78,7 +78,7 @@ public class RemoveExpense extends Activity {
 		// getting the entry number
 		EditText remEntryText = (EditText) findViewById(R.id.remEntryText);
 		String remEntryNum = remEntryText.getText().toString();
-		if (remEntryNum.equals("")) {
+		if (remEntryNum.equals("") || remEntryNum.equals("0")) {
 			String msg = "Invalid Entry. Please choose an entry from the table";
 			// msg stays for 3.5 sec instead of 2 sec
 			int duration = Toast.LENGTH_SHORT;
@@ -97,13 +97,19 @@ public class RemoveExpense extends Activity {
 			rowPointer.close();
 			
 			
+			// updating the database to fix the entry id's
+			rowPointer = db.rawQuery("UPDATE " + BudgetEntry.TABLE_NAME +
+									 " SET " + BudgetEntry.COLUMN_NAME_EXPENSE_ID + 
+									 "=" + BudgetEntry.COLUMN_NAME_EXPENSE_ID + 
+									 "-1 WHERE " + BudgetEntry.COLUMN_NAME_EXPENSE_ID +
+									 ">?", new String[] {entry.toString()});
+			rowPointer.moveToFirst();
+			rowPointer.close();
+			
 			String msg = "Database updated. Expense Removed";
 			// msg stays for 3.5 sec instead of 2 sec
 			int duration = Toast.LENGTH_SHORT;
 			Toast.makeText(context, msg, duration).show();
-			
-			// updating the database to fix the entry id's
-			
 			
 			populateTable();
 		}
