@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -24,6 +26,8 @@ public class HomePage extends Activity {
 	BudgetDbHelper bDbHelper;
 	SharedPreferences fieldValues;
 	SharedPreferences.Editor fieldEdit;
+	int appLaunchCount;
+	boolean reviewed;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +37,15 @@ public class HomePage extends Activity {
 		TextView monStats = (TextView) findViewById(R.id.monStats);
 		monStats.setTypeface(null, Typeface.BOLD_ITALIC);
 		updateFields();
-		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
+		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);		
+		
 		if(fieldValues.getBoolean("dailyStats", false)) {
 			dailyStatsUpdate();
 		}
 		else {
 			clearDailyStats();
 		}
+		askForReview();
 	}
 	
 	// if activity is stopped and started again
@@ -53,6 +59,7 @@ public class HomePage extends Activity {
 		else {
 			clearDailyStats();
 		}
+//		askForReview();
 	}
 	
 	// if activity is paused and started again
@@ -66,17 +73,49 @@ public class HomePage extends Activity {
 		else {
 			clearDailyStats();
 		}
+//		askForReview();
 	}
 	
-//	// if activity gains focus after app is stopped
-//	public void onResume() {
-//		updateFields();
-//	}
-
+	public void askForReview() {
+		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
+		fieldEdit = fieldValues.edit();
+		// getting the number of app launches to prompt the user for a review
+		appLaunchCount = fieldValues.getInt("appLaunches", 0);
+		reviewed = fieldValues.getBoolean("reviewed", false);
+		appLaunchCount++;
+		if ((appLaunchCount % 5 == 0) && (!reviewed) && appLaunchCount != 0) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("It seems that you've been using this app for a while (" +
+								appLaunchCount + " times). It would be really great if you'd take a moment to rate it");
+			builder.setCancelable(false);
+			builder.setPositiveButton("Sure, I'd love to!", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					// fire an intent go to your next activity
+					reviewed = true;
+				}
+			});
+			builder.setNegativeButton("Nah, Sorry!", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					// fire an intent go to your next activity
+					dialog.cancel();
+				}
+			});
+			builder.setNeutralButton("Maybe later!", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					// fire an intent go to your next activity
+				}
+			});			
+//		}
+		fieldEdit.putBoolean("reviewed", reviewed);
+		fieldEdit.putInt("appLaunches", appLaunchCount);
+		fieldEdit.commit();
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home_page, menu);
+		menu.clear();
 		return true;
 	}
 	

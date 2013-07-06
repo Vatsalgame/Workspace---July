@@ -106,6 +106,7 @@ public class Configure extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.configure, menu);
+		menu.clear();
 		return true;
 	}
 	

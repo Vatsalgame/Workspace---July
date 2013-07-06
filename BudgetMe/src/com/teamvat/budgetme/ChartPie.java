@@ -69,6 +69,7 @@ public class ChartPie extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.chart_pie, menu);
+		menu.clear();
 		return true;
 	}
 	
@@ -183,6 +184,7 @@ public class ChartPie extends Activity {
         
         WebView webPie = (WebView) findViewById(R.id.webChart);
         webPie.loadUrl(url);
+        webPie.getSettings().setBuiltInZoomControls(true);
         
         db.close();
 	}
