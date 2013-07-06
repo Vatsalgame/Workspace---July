@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -54,6 +55,9 @@ public class Configure extends Activity {
 		setContentView(R.layout.activity_configure);
 		
 		context = this;
+		// displaying the heading properly
+		TextView configHead = (TextView) findViewById(R.id.configLabel);
+		configHead.setTypeface(null, Typeface.BOLD_ITALIC);
 		// setting the spinner values
 		Spinner curSpinner = (Spinner) findViewById(R.id.curSpinner);
 		ArrayAdapter<String> populator = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, currencies);

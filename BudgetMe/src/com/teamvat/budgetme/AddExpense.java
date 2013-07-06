@@ -8,8 +8,10 @@ import java.util.Date;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.teamvat.budgetme.BudgetReaderContract.BudgetEntry;
@@ -34,6 +37,10 @@ public class AddExpense extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_expense);
+		
+		// display the heading properly
+		TextView addExpLabel = (TextView) findViewById(R.id.addExpLabel);
+		addExpLabel.setTypeface(null, Typeface.BOLD_ITALIC);
 		// Populating the spinner
 		Spinner spinner = (Spinner) findViewById(R.id.cat_spinner);
 		ArrayAdapter<String> populator = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
@@ -46,6 +53,11 @@ public class AddExpense extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.add_expense, menu);
 		return true;
+	}
+	
+	public void switchToRemove(View view) {
+		Intent switchToRem = new Intent(this, RemoveExpense.class);
+		startActivity(switchToRem);
 	}
 	
 	// called when user clicks on Add Expense

@@ -92,7 +92,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/tableButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/pieButton"
@@ -150,8 +150,8 @@
         android:id="@+id/viewStatsAsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_alignLeft="@+id/button1"
+        android:layout_above="@+id/remSwitchButton"
+        android:layout_alignLeft="@+id/tableButton"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/catGas"
         android:text="View Stats as a:"

@@ -23,6 +23,7 @@ public class HomePage extends Activity {
 	// declaring a DB handler
 	BudgetDbHelper bDbHelper;
 	SharedPreferences fieldValues;
+	SharedPreferences.Editor fieldEdit;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -215,11 +216,16 @@ public class HomePage extends Activity {
 	public void updateFields() {
 		// to get budget of the month
 		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
+		fieldEdit = fieldValues.edit();
+		
 		Float monthlyBudget = fieldValues.getFloat("monthlyBudget", 0.00f);
 		String currency = fieldValues.getString("currency", "CAD");
 		
 		TextView monBudgetText = (TextView) findViewById(R.id.mBudgetText);
 		monBudgetText.setText("Budget for this month: " + new DecimalFormat("#.##").format(monthlyBudget) + " " + currency);
+		// getting text size for displaying as per the resolution of the device
+		fieldEdit.putFloat("stringSize", monBudgetText.getTextSize());
+		fieldEdit.commit();
 		// to get total expenses for the month
 		bDbHelper = new BudgetDbHelper(getApplicationContext());
 		SQLiteDatabase db = bDbHelper.getReadableDatabase();

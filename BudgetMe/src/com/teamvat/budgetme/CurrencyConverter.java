@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -38,6 +39,10 @@ public class CurrencyConverter extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_currency_converter);
+		
+		// displaying the heading properly
+		TextView curConvLabel = (TextView) findViewById(R.id.curConvLabel);
+		curConvLabel.setTypeface(null, Typeface.BOLD_ITALIC);
 		
 		fromSpinner = (Spinner) findViewById(R.id.fromCurSpin);
 		toSpinner = (Spinner) findViewById(R.id.toCurSpin);
