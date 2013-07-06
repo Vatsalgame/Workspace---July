@@ -99,9 +99,31 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="98dp"
+        android:layout_marginBottom="173dp"
         android:onClick="saveConfig"
         android:text="Save &amp; Update"
-        android:textSize="34sp" />
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/creditButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/helpButton"
+        android:onClick="switchToCredits"
+        android:text="Credits"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/curSpinner"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="switchToHelp"
+        android:text="Help"
+        android:textSize="36sp" />
 
 </RelativeLayout>

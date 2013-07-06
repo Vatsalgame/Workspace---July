@@ -44,19 +44,6 @@
         <requestFocus />
     </EditText>
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="30dp"
-        android:minHeight="35dp"
-        android:onClick="saveConfig"
-        android:text="Save &amp; Update"
-        android:textSize="20sp" />
-
     <CheckBox
         android:id="@+id/dailyStatCheck"
         android:layout_width="wrap_content"
@@ -103,6 +90,40 @@
         android:layout_alignLeft="@+id/monBudgetLabel"
         android:layout_marginBottom="27dp"
         android:text="Yearly Budget:"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/curSpinner"
+        android:minHeight="35dp"
+        android:onClick="saveConfig"
+        android:text="Save &amp; Update"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/creditButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/helpButton"
+        android:onClick="switchToCredits"
+        android:text="Credits"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/curSpinner"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="switchToHelp"
+        android:text="Help"
         android:textSize="20sp" />
 
 </RelativeLayout>

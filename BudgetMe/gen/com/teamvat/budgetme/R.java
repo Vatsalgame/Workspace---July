@@ -55,7 +55,7 @@ public final class R {
         public static final int convButton=0x7f0a0023;
         public static final int convRateText=0x7f0a0022;
         public static final int convResText=0x7f0a0021;
-        public static final int creditButton=0x7f0a0016;
+        public static final int creditButton=0x7f0a0015;
         public static final int curConvLabel=0x7f0a0020;
         public static final int curLabel=0x7f0a000e;
         public static final int curSpinner=0x7f0a000c;
@@ -71,7 +71,7 @@ public final class R {
         public static final int enterAmtText=0x7f0a001d;
         public static final int fromCurSpin=0x7f0a001c;
         public static final int getAmtText=0x7f0a0002;
-        public static final int helpButton=0x7f0a0015;
+        public static final int helpButton=0x7f0a0016;
         public static final int helpLabel=0x7f0a0024;
         public static final int horizontalScrollView1=0x7f0a0033;
         public static final int mBudgetText=0x7f0a002b;
