@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".RemoveExpense" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/statSpinner" >
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TableLayout
+                android:id="@+id/remTableLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <Spinner
+        android:id="@+id/statSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/remEntryText"
+        android:layout_below="@+id/remEntryText" />
+
+    <TextView
+        android:id="@+id/remExpLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Remove an Expense"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/remEntryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/remExpLabel"
+        android:layout_below="@+id/remExpLabel"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="Enter Expense Entry No."
+        android:inputType="number"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/remExpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/remEntryText"
+        android:layout_alignBottom="@+id/remEntryText"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/remEntryText"
+        android:onClick="removeExpense"
+        android:text="Remove Expense"
+        android:textSize="14sp" />
+
+</RelativeLayout>

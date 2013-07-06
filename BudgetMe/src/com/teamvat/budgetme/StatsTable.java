@@ -214,6 +214,8 @@ public class StatsTable extends Activity {
 			}
 			tl.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
 		}
+		
+		db.close();
 	}
 
 }

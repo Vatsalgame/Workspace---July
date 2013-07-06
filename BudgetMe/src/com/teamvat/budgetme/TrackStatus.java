@@ -202,6 +202,8 @@ public class TrackStatus extends Activity {
     	TextView totalExpenses = (TextView) findViewById(R.id.totalExpense);
     	totalExpenses.setText("Total Expenditure: " + 
     							new DecimalFormat("#.##").format(totalExpense) + " " + currency);
+    	
+    	db.close();
 	}
 
 }

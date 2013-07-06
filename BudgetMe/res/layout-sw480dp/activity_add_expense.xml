@@ -94,4 +94,15 @@
         android:hint="Enter Expense&apos;s Description \n(multi- line encouraged)"
         android:inputType="textAutoCorrect|textAutoComplete|textMultiLine" />
 
+    <Button
+        android:id="@+id/remSwitchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/addExpLabel"
+        android:onClick="switchToRemove"
+        android:text="Remove an Expense"
+        android:textSize="28sp" />
+
 </RelativeLayout>

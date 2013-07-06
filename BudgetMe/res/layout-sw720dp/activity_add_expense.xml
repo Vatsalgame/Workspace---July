@@ -96,4 +96,16 @@
         android:inputType="textAutoCorrect|textAutoComplete|textMultiLine"
         android:textSize="26sp" />
 
+    <Button
+        android:id="@+id/remSwitchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addExpLabel"
+        android:layout_alignBottom="@+id/addExpLabel"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/addExpLabel"
+        android:onClick="switchToRemove"
+        android:text="Remove an Expense"
+        android:textSize="44sp" />
+
 </RelativeLayout>

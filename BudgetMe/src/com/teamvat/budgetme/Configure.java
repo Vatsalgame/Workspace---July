@@ -293,5 +293,7 @@ public class Configure extends Activity {
 		// msg stays for 3.5 sec instead of 2 sec
 		int duration = Toast.LENGTH_SHORT;
 		Toast.makeText(context, msg, duration).show();
+		
+		db.close();
 	}
 }

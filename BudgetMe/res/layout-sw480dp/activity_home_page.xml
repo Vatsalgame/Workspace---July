@@ -58,7 +58,7 @@
         android:layout_below="@+id/remainderText"
         android:layout_marginTop="57dp"
         android:text="Daily Stats:"
-        android:textSize="26sp" />
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/moneySpentText"
@@ -90,7 +90,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="23dp"
         android:text="Monthly Stats:"
-        android:textSize="26sp" />
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/mBudgetText"

@@ -31,6 +31,7 @@ public class RemoveExpense extends Activity {
 	TableLayout tl;
 	BudgetDbHelper bDbHelper;
 	SharedPreferences fieldValues;
+	SharedPreferences.Editor fieldEdit;
 	public static String[] statVariants = {
 		"Stats (to Date)", "Stats (this Month)", "Stats (this Year)", "Stats (today)"
 	};
@@ -78,40 +79,60 @@ public class RemoveExpense extends Activity {
 		// getting the entry number
 		EditText remEntryText = (EditText) findViewById(R.id.remEntryText);
 		String remEntryNum = remEntryText.getText().toString();
-		if (remEntryNum.equals("") || remEntryNum.equals("0")) {
-			String msg = "Invalid Entry. Please choose an entry from the table";
-			// msg stays for 3.5 sec instead of 2 sec
-			int duration = Toast.LENGTH_SHORT;
+		
+		String msg = "Invalid Entry. Please choose an entry from the table";
+		// msg stays for 3.5 sec instead of 2 sec
+		int duration = Toast.LENGTH_SHORT;
+		
+		if (remEntryNum.equals("") || remEntryNum.equals("0")) {	
 			Toast.makeText(context, msg, duration).show();
 		}
 		else {
 			Integer entry = Integer.parseInt(remEntryNum);
-			// getting a editable database
-			bDbHelper = new BudgetDbHelper(getApplicationContext());
-			SQLiteDatabase db = bDbHelper.getWritableDatabase();
-			// deleting the selected expense
-			Cursor rowPointer = db.rawQuery("DELETE FROM " + BudgetEntry.TABLE_NAME +
-											" WHERE " + BudgetEntry.COLUMN_NAME_EXPENSE_ID +
-											"=?", new String[] {entry.toString()});
-			rowPointer.moveToFirst();
-			rowPointer.close();
+			// getting the entry id for checking
+			fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
+			fieldEdit = fieldValues.edit();
+			BudgetEntry.entryID = fieldValues.getInt("entryID", 1);
 			
-			
-			// updating the database to fix the entry id's
-			rowPointer = db.rawQuery("UPDATE " + BudgetEntry.TABLE_NAME +
-									 " SET " + BudgetEntry.COLUMN_NAME_EXPENSE_ID + 
-									 "=" + BudgetEntry.COLUMN_NAME_EXPENSE_ID + 
-									 "-1 WHERE " + BudgetEntry.COLUMN_NAME_EXPENSE_ID +
-									 ">?", new String[] {entry.toString()});
-			rowPointer.moveToFirst();
-			rowPointer.close();
-			
-			String msg = "Database updated. Expense Removed";
-			// msg stays for 3.5 sec instead of 2 sec
-			int duration = Toast.LENGTH_SHORT;
-			Toast.makeText(context, msg, duration).show();
-			
-			populateTable();
+			if (entry >= BudgetEntry.entryID) {
+				Toast.makeText(context, msg, duration).show();
+			}
+			else {
+				// getting a editable database
+				bDbHelper = new BudgetDbHelper(getApplicationContext());
+				SQLiteDatabase db = bDbHelper.getWritableDatabase();
+				// deleting the selected expense
+				Cursor rowPointer = db.rawQuery("DELETE FROM " + BudgetEntry.TABLE_NAME +
+												" WHERE " + BudgetEntry.COLUMN_NAME_EXPENSE_ID +
+												"=?", new String[] {entry.toString()});
+				rowPointer.moveToFirst();
+				rowPointer.close();
+				
+				
+				// updating the database to fix the entry id's
+				rowPointer = db.rawQuery("UPDATE " + BudgetEntry.TABLE_NAME +
+										 " SET " + BudgetEntry.COLUMN_NAME_EXPENSE_ID + 
+										 "=" + BudgetEntry.COLUMN_NAME_EXPENSE_ID + 
+										 "-1 WHERE " + BudgetEntry.COLUMN_NAME_EXPENSE_ID +
+										 ">?", new String[] {entry.toString()});
+				rowPointer.moveToFirst();
+				rowPointer.close();
+				
+				String msg2 = "Database updated. Expense Removed";
+				// msg stays for 3.5 sec instead of 2 sec
+				int duration2 = Toast.LENGTH_SHORT;
+				Toast.makeText(context, msg2, duration2).show();
+				
+				populateTable();
+				
+				db.close();
+				// decrementing ID value
+		    	BudgetEntry.entryID--;
+		    	fieldEdit.putInt("entryID", BudgetEntry.entryID);
+		    	fieldEdit.commit();
+				// refreshing the entry field
+				remEntryText.setText("");
+			}
 		}
 	}
 	
@@ -241,6 +262,7 @@ public class RemoveExpense extends Activity {
 			}
 			tl.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
 		}
+		db.close();
 	}
 
 }

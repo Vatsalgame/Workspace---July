@@ -79,8 +79,8 @@ public final class R {
         public static final int pieLayout=0x7f0a0009;
         public static final int relStatsLay=0x7f0a0031;
         public static final int remEntryText=0x7f0a002d;
-        public static final int remExpButton=0x7f0a002e;
-        public static final int remExpLabel=0x7f0a002f;
+        public static final int remExpButton=0x7f0a002f;
+        public static final int remExpLabel=0x7f0a002e;
         public static final int remSwitchButton=0x7f0a0008;
         public static final int remTableLay=0x7f0a002c;
         public static final int remainderText=0x7f0a0026;

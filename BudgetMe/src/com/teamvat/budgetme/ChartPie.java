@@ -183,6 +183,8 @@ public class ChartPie extends Activity {
         
         WebView webPie = (WebView) findViewById(R.id.webChart);
         webPie.loadUrl(url);
+        
+        db.close();
 	}
 
 }

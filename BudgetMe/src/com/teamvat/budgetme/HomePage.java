@@ -198,6 +198,8 @@ public class HomePage extends Activity {
 		daySpentText.setText("Money Spent: " + new DecimalFormat("#.##").format(totalDailyExpense) + " " + currency);
 		TextView dayRemText = (TextView) findViewById(R.id.dayRem);
 		dayRemText.setText("Money Remaining: " + new DecimalFormat("#.##").format(dailyBudget - totalDailyExpense) + " " + currency);
+		
+		db.close();
 	}
 	
 	// to clear daily stats
@@ -258,7 +260,9 @@ public class HomePage extends Activity {
     	
     	Double moneyRemaining = monthlyBudget - totalMonthlyExpense;
     	TextView remText = (TextView) findViewById(R.id.remainderText);
-    	remText.setText("Money Remaining: " + new DecimalFormat("#.##").format(moneyRemaining) + " " + currency);    	
+    	remText.setText("Money Remaining: " + new DecimalFormat("#.##").format(moneyRemaining) + " " + currency);
+    	
+    	db.close();
 	} 
 
 }
