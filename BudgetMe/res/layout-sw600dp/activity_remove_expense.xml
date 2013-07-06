@@ -44,7 +44,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/remEntryText"
         android:text="Remove Expense"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        android:onClick="removeExpense" />
 
     <TextView
         android:id="@+id/remExpLabel"

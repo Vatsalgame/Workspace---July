@@ -3,25 +3,28 @@ package com.teamvat.budgetme;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.teamvat.budgetme.BudgetReaderContract.BudgetEntry;
-
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
+
+import com.teamvat.budgetme.BudgetReaderContract.BudgetEntry;
 
 public class RemoveExpense extends Activity {
 	
@@ -67,6 +70,43 @@ public class RemoveExpense extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.remove_expense, menu);
 		return true;
+	}
+	
+	public void removeExpense(View view) {
+		// getting the context
+		Context context = getApplicationContext();
+		// getting the entry number
+		EditText remEntryText = (EditText) findViewById(R.id.remEntryText);
+		String remEntryNum = remEntryText.getText().toString();
+		if (remEntryNum.equals("")) {
+			String msg = "Invalid Entry. Please choose an entry from the table";
+			// msg stays for 3.5 sec instead of 2 sec
+			int duration = Toast.LENGTH_SHORT;
+			Toast.makeText(context, msg, duration).show();
+		}
+		else {
+			Integer entry = Integer.parseInt(remEntryNum);
+			// getting a editable database
+			bDbHelper = new BudgetDbHelper(getApplicationContext());
+			SQLiteDatabase db = bDbHelper.getWritableDatabase();
+			// deleting the selected expense
+			Cursor rowPointer = db.rawQuery("DELETE FROM " + BudgetEntry.TABLE_NAME +
+											" WHERE " + BudgetEntry.COLUMN_NAME_EXPENSE_ID +
+											"=?", new String[] {entry.toString()});
+			rowPointer.moveToFirst();
+			rowPointer.close();
+			
+			
+			String msg = "Database updated. Expense Removed";
+			// msg stays for 3.5 sec instead of 2 sec
+			int duration = Toast.LENGTH_SHORT;
+			Toast.makeText(context, msg, duration).show();
+			
+			// updating the database to fix the entry id's
+			
+			
+			populateTable();
+		}
 	}
 	
 	public void populateTable() {
