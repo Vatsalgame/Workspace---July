@@ -18,6 +18,9 @@ public class Credits extends Activity {
 		
 		TextView testLabel = (TextView) findViewById(R.id.testLabel);
 		testLabel.setTypeface(null, Typeface.BOLD_ITALIC);
+		
+		TextView contLabel = (TextView) findViewById(R.id.contLabel);
+		contLabel.setTypeface(null, Typeface.BOLD_ITALIC);
 	}
 
 	@Override
