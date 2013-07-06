@@ -8,6 +8,15 @@
     <string name="status_button">Track Your Status</string>
     <string name="title_activity_add_expense">AddExpense</string>
     <string name="config_button">Configure</string>
+    <string name="help_text">Thank you for downloading BudgetMe.\n
+    This is an easy-to-use app with self explanatory button to guide you through your steps.\n
+   	Here is a small text tutorial to get your way around the app:\n
+   	You\'ll always start out at the homepage with will show your monthly statistics (and daily statistics optionally).\n
+    From there, you can go to Add or Remove Expenses using Add/Remove Expenses button.\n
+    If you\'d like to view your expenses, you can head to Track Your Stats.\n
+    Finally, if you\'d like to change your settings, you can head to Configure.\n
+    
+    - Do check out the credits page to see the names of the people who contributed to this app</string>
 
     <string-array name="category_array">
         <item>Bill</item>
@@ -27,5 +36,7 @@
     <string name="title_activity_currency_converter">CurrencyConverter</string>
     <string name="title_activity_stats_table">StatsTable</string>
     <string name="title_activity_remove_expense">RemoveExpense</string>
+    <string name="title_activity_help_page">HelpPage</string>
+    <string name="title_activity_credits">Credits</string>
 
 </resources>

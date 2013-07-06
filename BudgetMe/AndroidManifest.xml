@@ -68,6 +68,15 @@
             android:label="@string/title_activity_remove_expense"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.teamvat.budgetme.HelpPage"
+            android:label="@string/title_activity_help_page" >
+        </activity>
+        <activity
+            android:name="com.teamvat.budgetme.Credits"
+            android:label="@string/title_activity_credits"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

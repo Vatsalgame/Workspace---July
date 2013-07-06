@@ -7,6 +7,7 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -149,6 +150,19 @@ public class Configure extends Activity {
 				curSpinner.setEnabled(true);
 			}
 		}
+	
+		
+	// called to launch help page
+	public void switchToHelp(View view) {
+		Intent switchHelp = new Intent(this, HelpPage.class);
+		startActivity(switchHelp);
+	}
+	
+	// called to launch credits
+	public void switchToCredits(View view) {
+		Intent switchCredits = new Intent(this, Credits.class);
+		startActivity(switchCredits);
+	}
 	
 	// method to update the configurations
 	public void saveConfig(View view) {
