@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/cat_spinner"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="61dp"
         android:onClick="enterExpense"
         android:text="Add Expense"

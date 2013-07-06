@@ -91,9 +91,9 @@
         android:id="@+id/convButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/convRateText"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/convResText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="110dp"
         android:text="Convert"
         android:textSize="34sp" />

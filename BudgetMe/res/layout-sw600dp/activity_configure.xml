@@ -95,12 +95,12 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/curLabel"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/dailyStatCheck"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="98dp"
+        android:onClick="saveConfig"
         android:text="Save &amp; Update"
-        android:textSize="30sp"
-        android:onClick="saveConfig" />
+        android:textSize="30sp" />
 
 </RelativeLayout>
