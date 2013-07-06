@@ -6,17 +6,20 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.teamvat.budgetme.BudgetReaderContract.BudgetEntry;
 
@@ -92,21 +95,43 @@ public class HomePage extends Activity {
 				public void onClick(DialogInterface dialog, int id) {
 					// fire an intent go to your next activity
 					reviewed = true;
+					fieldEdit.putBoolean("reviewed", reviewed);
+					fieldEdit.commit();
+					// launching the app page to enter a review
+					final Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
+					final Intent rateAppIntent = new Intent(Intent.ACTION_VIEW, uri);
+
+					if (getPackageManager().queryIntentActivities(rateAppIntent, 0).size() > 0)
+					{
+					    startActivity(rateAppIntent);
+					}
+					else
+					{
+						Context context = getApplicationContext();
+						String msg = "Error in opening the app page in Play Store. Sorry";
+						// msg stays for 3.5 sec instead of 2 sec
+						int duration = Toast.LENGTH_SHORT;
+						Toast.makeText(context, msg, duration).show();
+					}
 				}
 			});
 			builder.setNegativeButton("Nah, Sorry!", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
 					// fire an intent go to your next activity
 					dialog.cancel();
+					reviewed = true;
+					fieldEdit.putBoolean("reviewed", reviewed);
+					fieldEdit.commit();
 				}
 			});
 			builder.setNeutralButton("Maybe later!", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
 					// fire an intent go to your next activity
 				}
-			});			
-//		}
-		fieldEdit.putBoolean("reviewed", reviewed);
+			});
+			AlertDialog alert = builder.create();
+			alert.show();
+		}
 		fieldEdit.putInt("appLaunches", appLaunchCount);
 		fieldEdit.commit();
 	}
