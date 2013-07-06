@@ -57,4 +57,22 @@
         android:text="Ammar Javed"
         android:textSize="30sp" />
 
+    <TextView
+        android:id="@+id/emailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="namitvatsal1993@gmail.com"
+        android:textSize="33sp" />
+
+    <TextView
+        android:id="@+id/contLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/emailLabel"
+        android:layout_alignParentLeft="true"
+        android:text="Contact Us:"
+        android:textSize="34sp" />
+
 </RelativeLayout>
