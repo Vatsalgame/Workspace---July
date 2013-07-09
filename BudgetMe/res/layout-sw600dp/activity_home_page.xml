@@ -62,16 +62,6 @@
         android:textSize="32sp" />
 
     <TextView
-        android:id="@+id/dailyStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/remainderText"
-        android:layout_below="@+id/remainderText"
-        android:layout_marginTop="78dp"
-        android:text="Daily Stats:"
-        android:textSize="32sp" />
-
-    <TextView
         android:id="@+id/moneySpentText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -143,5 +133,15 @@
         android:layout_marginTop="21dp"
         android:text="Money Remaining:"
         android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/dailyStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/remainderText"
+        android:layout_below="@+id/remainderText"
+        android:layout_marginTop="44dp"
+        android:text="Daily Stats:"
+        android:textSize="32sp" />
 
 </RelativeLayout>

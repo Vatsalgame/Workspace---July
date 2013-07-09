@@ -22,19 +22,6 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/trackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="15dp"
-        android:minHeight="48dp"
-        android:minWidth="64dp"
-        android:onClick="switchToStats"
-        android:text="@string/status_button"
-        android:textSize="18sp" />
-
-    <Button
         android:id="@+id/addSwitchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,21 +32,6 @@
         android:minWidth="64dp"
         android:onClick="switchToAdd"
         android:text="@string/expense_button"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/configButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/trackButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/trackButton"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/addSwitchButton"
-        android:minHeight="48dp"
-        android:minWidth="64dp"
-        android:onClick="switchToConfig"
-        android:text="@string/config_button"
         android:textSize="18sp" />
 
     <TextView
@@ -143,6 +115,31 @@
         android:layout_marginTop="8dp"
         android:text="Money Spent"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/trackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:minHeight="48dp"
+        android:minWidth="64dp"
+        android:onClick="switchToStats"
+        android:text="@string/status_button"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/configButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/trackButton"
+        android:minHeight="48dp"
+        android:minWidth="64dp"
+        android:onClick="switchToConfig"
+        android:text="@string/config_button"
         android:textSize="18sp" />
 
 </RelativeLayout>

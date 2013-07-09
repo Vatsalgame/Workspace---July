@@ -51,16 +51,6 @@
         android:textSize="40sp" />
 
     <TextView
-        android:id="@+id/dailyStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/remainderText"
-        android:layout_below="@+id/remainderText"
-        android:layout_marginTop="127dp"
-        android:text="Daily Stats:"
-        android:textSize="46sp" />
-
-    <TextView
         android:id="@+id/remainderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -144,5 +134,15 @@
         android:onClick="switchToCurConverter"
         android:text="Convert Currency"
         android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/dailyStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/remainderText"
+        android:layout_below="@+id/remainderText"
+        android:layout_marginTop="61dp"
+        android:text="Daily Stats:"
+        android:textSize="46sp" />
 
 </RelativeLayout>

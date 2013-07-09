@@ -8,89 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TrackStatus" >
 
-    <TextView
-        android:id="@+id/totalExpense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/statLabel"
-        android:layout_below="@+id/statLabel"
-        android:text="Total Expenditure (to date)"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/catGas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catFood"
-        android:layout_below="@+id/catFood"
-        android:layout_marginTop="14dp"
-        android:text="in Gas:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/catGroceries"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catGas"
-        android:layout_below="@+id/catGas"
-        android:layout_marginTop="14dp"
-        android:text="in Groceries:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/catRent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catGroceries"
-        android:layout_below="@+id/catGroceries"
-        android:layout_marginTop="16dp"
-        android:text="in Rent:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/catRepairs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catRent"
-        android:layout_below="@+id/catRent"
-        android:layout_marginTop="14dp"
-        android:text="in Repairs:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/catOthers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catRepairs"
-        android:layout_below="@+id/catRepairs"
-        android:layout_marginTop="14dp"
-        android:text="in Others:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <Spinner
-        android:id="@+id/statLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
-
-    <Button
-        android:id="@+id/pieButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/catOthers"
-        android:layout_alignParentRight="true"
-        android:onClick="goToPie"
-        android:text="Pie Chart"
-        android:textSize="18sp" />
-
     <Button
         android:id="@+id/tableButton"
         android:layout_width="wrap_content"
@@ -102,36 +19,51 @@
         android:text="Table"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/catWiseExp"
+    <Button
+        android:id="@+id/pieButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/totalExpense"
-        android:layout_below="@+id/totalExpense"
-        android:layout_marginTop="15dp"
-        android:text="Category-wise expenses"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="goToPie"
+        android:text="Pie Chart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/viewStatsAsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tableButton"
+        android:layout_alignLeft="@+id/tableButton"
+        android:layout_alignParentRight="true"
+        android:text="View Stats as a:"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/statLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/totalExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/statLabel"
+        android:layout_below="@+id/statLabel"
+        android:text="Total Expenditure (to date)"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/catBills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catWiseExp"
-        android:layout_below="@+id/catWiseExp"
-        android:layout_marginTop="14dp"
-        android:text="in Bills:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/catFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/catEducation"
-       	android:layout_below="@+id/catEducation"
-       	android:layout_marginTop="14dp"
-        android:text="in Food:"
+        android:layout_below="@+id/catWiseExp"
+        android:layout_marginTop="10dp"
+        android:text="in Bills:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp" />
 
@@ -139,22 +71,88 @@
         android:id="@+id/catEducation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/catBills"
+        android:layout_alignLeft="@+id/catFood"
         android:layout_below="@+id/catBills"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="10dp"
         android:text="in Education:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/viewStatsAsLabel"
+        android:id="@+id/catFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/remSwitchButton"
-        android:layout_alignLeft="@+id/tableButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/catGas"
-        android:text="View Stats as a:"
-        android:textSize="18sp" />
+        android:layout_alignLeft="@+id/catGas"
+        android:layout_below="@+id/catEducation"
+        android:layout_marginTop="10dp"
+        android:text="in Food:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/catGas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catGroceries"
+        android:layout_below="@+id/catFood"
+        android:layout_marginTop="10dp"
+        android:text="in Gas:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/catGroceries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catRent"
+        android:layout_below="@+id/catGas"
+        android:layout_marginTop="10dp"
+        android:text="in Groceries:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/catRent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catRepairs"
+        android:layout_below="@+id/catGroceries"
+        android:layout_marginTop="10dp"
+        android:text="in Rent:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/catOthers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalExpense"
+        android:layout_below="@+id/catRepairs"
+        android:layout_marginTop="10dp"
+        android:text="in Others:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/catRepairs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/catOthers"
+        android:layout_below="@+id/catRent"
+        android:layout_marginTop="10dp"
+        android:text="in Repairs:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/catWiseExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalExpense"
+        android:layout_below="@+id/totalExpense"
+        android:layout_marginTop="10dp"
+        android:text="Category-wise expenses"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
 
 </RelativeLayout>
