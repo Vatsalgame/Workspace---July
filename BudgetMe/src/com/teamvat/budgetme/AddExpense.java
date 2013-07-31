@@ -67,6 +67,7 @@ public class AddExpense extends Activity {
 		SQLiteDatabase db = bDbHelper.getWritableDatabase();
 		fieldValues = PreferenceManager.getDefaultSharedPreferences(this);
 		fieldEdit = fieldValues.edit();
+		Context context = getApplicationContext();
 		
 		// getting the correct ID
 		BudgetEntry.entryID = fieldValues.getInt("entryID", 1);
@@ -76,49 +77,59 @@ public class AddExpense extends Activity {
 		
 		// getting the amount
 		EditText editAmt = (EditText) findViewById(R.id.getAmtText);
-    	Double amt = Double.parseDouble(editAmt.getText().toString());
-    	String editedAmt = new DecimalFormat("#.##").format(amt);
-    	Double newAmt = Double.parseDouble(editedAmt);
-    	// getting the category
-    	Spinner spinCat = (Spinner) findViewById(R.id.cat_spinner);
-    	String category = spinCat.getSelectedItem().toString();
+		String amtText = editAmt.getText().toString();
+		if(amtText.equals("")) {
+			String msg = "Please enter the amount";
+			// msg stays for 3.5 sec instead of 2 sec
+			int duration = Toast.LENGTH_SHORT;
+			Toast.makeText(context, msg, duration).show();
+		}
+		else {
+			Double amt = Double.parseDouble(amtText);
+	    	String editedAmt = new DecimalFormat("#.##").format(amt);
+	    	Double newAmt = Double.parseDouble(editedAmt);
+	    	// getting the category
+	    	Spinner spinCat = (Spinner) findViewById(R.id.cat_spinner);
+	    	String category = spinCat.getSelectedItem().toString();
+	    	
+	    	EditText descText = (EditText) findViewById(R.id.descText);
+	    	String desc = descText.getText().toString();
+	    	
+	    	//creating the new expense row to be added
+	    	ContentValues values = new ContentValues();
+	    	// change to get apt values
+	    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_ID, BudgetEntry.entryID);
+	    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_AMT, newAmt);
+	    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CUR, currency);
+	    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CAT, category);
+	    	
+	    	// readying the date
+	    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    	Date curr_date = new Date();
+	    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_DATE, dateFormat.format(curr_date));
+	    	
+	    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_DESC, desc);
+	    	
+	    	//inserting the new expense
+	    	long newRowId = db.insert(BudgetEntry.TABLE_NAME, null, values);
+	    	
+	    	// incrementing ID value
+	    	BudgetEntry.entryID++;
+	    	fieldEdit.putInt("entryID", BudgetEntry.entryID);
+	    	fieldEdit.commit();
+	    	
+	    	
+			String msg = "Expense Added";
+			// msg stays for 3.5 sec instead of 2 sec
+			int duration = Toast.LENGTH_SHORT;
+			Toast.makeText(context, msg, duration).show();
+			
+			db.close();
+			// refreshing all the entry fields
+			editAmt.setText("");
+			descText.setText("");
+		}
     	
-    	EditText descText = (EditText) findViewById(R.id.descText);
-    	String desc = descText.getText().toString();
-    	
-    	//creating the new expense row to be added
-    	ContentValues values = new ContentValues();
-    	// change to get apt values
-    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_ID, BudgetEntry.entryID);
-    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_AMT, newAmt);
-    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CUR, currency);
-    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_CAT, category);
-    	
-    	// readying the date
-    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    	Date curr_date = new Date();
-    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_DATE, dateFormat.format(curr_date));
-    	
-    	values.put(BudgetEntry.COLUMN_NAME_EXPENSE_DESC, desc);
-    	
-    	//inserting the new expense
-    	long newRowId = db.insert(BudgetEntry.TABLE_NAME, null, values);
-    	
-    	// incrementing ID value
-    	BudgetEntry.entryID++;
-    	fieldEdit.putInt("entryID", BudgetEntry.entryID);
-    	fieldEdit.commit();
-    	
-    	Context context = getApplicationContext();
-		String msg = "Expense Added";
-		// msg stays for 3.5 sec instead of 2 sec
-		int duration = Toast.LENGTH_SHORT;
-		Toast.makeText(context, msg, duration).show();
-		
-		db.close();
-		// refreshing all the entry fields
-		editAmt.setText("");
-		descText.setText("");
 	}
 
 }
